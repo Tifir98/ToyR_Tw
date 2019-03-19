@@ -20,3 +20,47 @@
         opacity: 0;
     }
 }
+@keyframes menuSlideIn
+{
+    from
+    {
+        right: 100%;
+    }
+    to 
+    {
+        right: 85%;
+    }
+}
+@keyframes menuSlideOut
+{
+    from
+    {
+        right: 85%;
+    }
+    to 
+    {
+        right: 100%;
+    }
+}
+@keyframes iconSlideIn
+{
+    from
+    {
+        left: 0%;
+    }
+    to 
+    {
+        left: 11.7%;
+    }
+}
+@keyframes iconSlideOut
+{
+    from
+    {
+        left: 11.7%;
+    }
+    to 
+    {
+        left: 0%;
+    }
+}

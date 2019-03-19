@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/style.css">
     <title>ToyR</title>
+    <script src="main.js"></script>
 </head>
-<body>
+<body onload="onLoad()">
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch">
     </div>
     <nav id="top-bar">    
-        <button id="menu-icon">
+        <button id="menu-icon" onclick=burgerClick()>
            <i class = "fas fa-bars fa-2x"></i>  
         </button>
         <a href="index.html">
@@ -23,7 +24,7 @@
          </a>
     </nav>
     
-    <nav id="left-bar">
+    <nav id="left-bar" class = "slideIn">
         <div class="items" id = "selected-item"> 
             <span class="tabText"> Selected item</span> 
         </div>
@@ -36,10 +37,29 @@
         <div class="items">
            <span class="tabText"> Item 3</span>
         </div>
+        <div class="items">
+                <span class="tabText"> Item 4</span>
+        </div>
+        <div class="items">
+                <span class="tabText"> Item 5</span>
+        </div>
+        <div class="items">
+                <span class="tabText"> Item 6</span>
+        </div>
+        <div class="items">
+                <span class="tabText"> Item 7</span>
+        </div>
+        <div class="items">
+                <span class="tabText"> Item 8</span>
+        </div>
+        <div id="companyLogo">
+                <span class="tabText">Company Logo</span>
+        </div>
     </nav>
 
-    <section id="section1">
-        <h2>Categories</h2>
+    <div class = "title">Anything more specific in mind?</div>
+
+    <section id="section1">  
         <div class="panel"><div class="categoryPanel">Category1</div></div>
         <div class="panel"><div class="categoryPanel">Category2</div></div>
         <div class="panel"><div class="categoryPanel">Category3</div></div>
