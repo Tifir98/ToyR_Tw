@@ -1,0 +1,22 @@
+@keyframes backZoom
+{
+    from
+    {
+        background-size: 100%;
+    }
+    to
+    {
+        background-size: 150%;
+    }
+}
+@keyframes panelAppear
+{
+    from
+    {
+        opacity: 0.7;
+    }
+    to 
+    {
+        opacity: 0;
+    }
+}
