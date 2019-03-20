@@ -6,36 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/style.css">
-    <title>ToyR</title>
-    <script src="main.js"></script>
+    <title>ToyR - Categories</title>
 </head>
-<body onload="onLoad()">
+<body>
     <div id="bg">
-        <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
+        <img src="Images/background1.jpg"class="stretch">
     </div>
     <nav id="top-bar">    
-    
-    <div class = "leftTopBar">
-        <button id="menu-icon" onclick=burgerClick()>
+        <button id="menu-icon">
            <i class = "fas fa-bars fa-2x"></i>  
         </button>
-
-        <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
-                <a class="search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                </a>
-        </div>
-    </div>
-        
-    <div onclick="goHomePage()" id="rightTopBar">
-            <img src="Images/toyr_logo.png" id="rightLogo">
-            <i class="fas fa-home fa-2x" id="home-icon"></i>
-    </div>
-
+        <a href="index.html">
+        <button id="home-icon">
+            <i class="fas fa-home fa-2x"></i>
+        </button>
+         </a>
     </nav>
     
-    <nav id="left-bar" class = "slideIn">
+    <nav id="left-bar">
         <div class="items" id = "selected-item"> 
             <span class="tabText"> Selected item</span> 
         </div>
@@ -48,29 +36,10 @@
         <div class="items">
            <span class="tabText"> Item 3</span>
         </div>
-        <div class="items">
-                <span class="tabText"> Item 4</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 5</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 6</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 7</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 8</span>
-        </div>
-        <div id="companyLogo">
-                <span class="tabText">© ToyR</span>
-        </div>
     </nav>
 
-    <div class = "title"><strong>Anything more specific in mind?</strong></div>
-
-    <section id="section1"  onclick="outsideBarClick()">  
+    <section id="section1">
+        <h2>Categories</h2>
         <div class="panel"><div class="categoryPanel">Category1</div></div>
         <div class="panel"><div class="categoryPanel">Category2</div></div>
         <div class="panel"><div class="categoryPanel">Category3</div></div>
@@ -79,6 +48,7 @@
         <div class="panel"><div class="categoryPanel">Category6</div></div>
         <div class="panel"><div class="categoryPanel">Category7</div></div>
         <div class="panel"><div class="categoryPanel">Category8</div></div>
-    </section>  
+    </section>
+   
 </body>
 </html>
