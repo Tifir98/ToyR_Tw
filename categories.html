@@ -11,7 +11,7 @@
 </head>
 <body onload="onLoad()">
     <div id="bg">
-        <img src="Images/background1.jpg"class="stretch">
+        <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
     <nav id="top-bar">    
         <button id="menu-icon" onclick=burgerClick()>
@@ -59,7 +59,7 @@
 
     <div class = "title">Anything more specific in mind?</div>
 
-    <section id="section1">  
+    <section id="section1"  onclick="outsideBarClick()">  
         <div class="panel"><div class="categoryPanel">Category1</div></div>
         <div class="panel"><div class="categoryPanel">Category2</div></div>
         <div class="panel"><div class="categoryPanel">Category3</div></div>
@@ -68,7 +68,6 @@
         <div class="panel"><div class="categoryPanel">Category6</div></div>
         <div class="panel"><div class="categoryPanel">Category7</div></div>
         <div class="panel"><div class="categoryPanel">Category8</div></div>
-    </section>
-   
+    </section>  
 </body>
 </html>

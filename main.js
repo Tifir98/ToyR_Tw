@@ -1,8 +1,8 @@
-var open = false;
+var sideOpen = false;
 
 function onLoad()
 {
-    open = false;
+    sideOpen = false;
     document.getElementById("left-bar").style.display = "none";
     document.getElementById("menu-icon").style.left = "0";
     var section = document.getElementById("section1");
@@ -26,22 +26,25 @@ window.onresize = onResizeWindow;
 function burgerClick()
 {
     var menu = document.getElementById("left-bar");
-    var menuButton = document.getElementById("menu-icon");
-    if(open == false)
+    if(sideOpen == false)
         {
             menu.style.display = "block";
             menu.className = "menuSlideIn";
-            menuButton.className = "iconSlideIn";
-            menuButton.style.left = "11.7%";
-            open = true;
+            sideOpen = true;
         }
     else
         {
             menu.className = "menuSlideOut";
-            // alert();
-            menuButton.className = "iconSlideOut";
-            menuButton.style.left = "0";
-            open = false;
-            // menu.style.display = "none";
+            sideOpen = false;
         }
+}
+
+function outsideBarClick()
+{
+    if(sideOpen == true)
+    {
+        var menu = document.getElementById("left-bar");
+        menu.className = "menuSlideOut";
+        sideOpen = false;
+    }
 }
