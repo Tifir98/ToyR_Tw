@@ -16,6 +16,7 @@ function onLoad()
     var rightLogoHeight = topBar.getBoundingClientRect().height / 2 - rightLogo.getBoundingClientRect().height / 2;
     // alert(topBar.getBoundingClientRect().height + " " + rightLogo.getBoundingClientRect().height + " " + rightLogoHeight);
     rightLogo.style.setProperty('top', rightLogoHeight + "px");
+    
 }
 
 function onResizeWindow()
@@ -58,4 +59,9 @@ function outsideBarClick()
         menu.className = "menuSlideOut";
         sideOpen = false;
     }
+}
+
+function goHomePage()
+{
+    window.location.href = "index.html";
 }
