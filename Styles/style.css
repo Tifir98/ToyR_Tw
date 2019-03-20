@@ -1,95 +1,31 @@
-@import "indexStyle.css";
 @import "keyframes.css";
-
-body
+/* @import "navigation.css"; */
+#bg
 {
-    /* background:  	rgb(232,232,232); */
-    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
-a{
-    color: white;
-}
+
 .title
 {
     position: absolute;
-    left: 20%;
-    top: 20%;
-    font-size: 3em;
-}
-#top-bar
-{
-    z-index : 1;
-    position: fixed;
-    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 7%;
-    background: #395886;
-    left: 0;
+    top: 20%;
+    font-size: 3vw;
 }
-#menu-icon
-{
-    background-color:white;
-    background: none;
-    border: 0;
-    color: white;
-    float: left;
-    position: relative;
-    /* left: 0%; */
-    top: 30%;
-    margin-left: 10px;
-}
-#home-icon
-{
-    font-style: none;
-    background: none;
-    border: 0;
-    color: white;
-    position: relative;
-    float: right;
-    top: 30%;
-    margin-right: 10px;
-}
-#left-bar
-{   
-    /* display: none; */
-    overflow: hidden;
-    position: fixed;
-    width: 15%;
-    height: 93%;
-    background: linear-gradient( #3D6392, #689CCC );
-    /* left: 0%; */
-    top: 7%;
-    z-index: 2;
-}
-.items
-{
-    background: #E0DCD9;
-    padding: 2vh 0;
-    margin: 2vh 0;
-}
-#companyLogo
-{
-    background: rgb(89, 89, 89);
-    margin-top: 17vh;
-}
-.tabText
-{
-    margin-left: 30px;
-}
-#selected-item
-{
-    background: rgb(217, 217, 217);
-}
+
 #section1
 {
 
     position: absolute;
-    /* top: 50%; */
     width: 100%;
-    /* left: 0;
-    right: 0; */
-    /* top: 0;
-    bottom: 0; */
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -122,6 +58,7 @@ a{
     align-items: center;
     background: black;
     opacity: 0.7;
+    font-size: 2vw;
     /* justify-content: center; */
 }
 
@@ -135,90 +72,8 @@ a{
     /* animation: panelAppear 1s ease; */
     opacity: 0;
 }
-.menuSlideIn
-{
-    animation: menuSlideIn 1s ease;
-    right: 85%;
-    
-}
-.menuSlideOut
-{
-    animation: menuSlideOut 1s ease;
-    right: 100%;
-}
-.iconSlideIn
-{
-    animation: iconSlideIn 1s ease;
-    left: 11.7%;
-}
-.iconSlideOut
-{
-    animation: iconSlideOut 1s ease;
-    left: 0;
-}
-.search-box {
-    position: absolute;
-    margin-top: 17px;
-    margin-left: 50px;
 
-}
-.search-txt{
-    border:none;
-    background: none;
-    outline: none;
-    padding: 0;
-    color: white;
-    font-size:16px;
-    transition: 0.4s;
-    width: 240px;
-}
-.name-box{
-    position: relative;
-    float: right ;
-    background:none;
-    flex-direction: column;
-    flex-wrap: wrap; 
-    display:flex;
-    color:Black;
-    margin-top: 5%;
-    margin-left: 10%;
-    size: 15; 
-}
-.name-txt{
-    position: relative;
-    float: left;
-    background:rgba(255,255,255,0);
-    margin-top: 5%;
-    margin-left: 10%;
-    width: -50%;
-}
-.rightSide
+/* .rightTopBar:hover
 {
-    position: relative;
-    float:right;
-    width: 110px;
-    height: 100px;
-    margin: -1.5% 0% 0% 0%;
-
-}
-.contractPanel{
-    position:relative;
-    float: left;
-    opacity: 0.7;
-    flex-direction:column;
-    border-radius: 5%;
-    display:flex;
-}
-.itemsPanel{
-    align-items: center;
-}
-.priceTag{
-
-    position:relative;
-    float: bottom;
-    
-}
-.title{
-    flex-flow:column wrap;
-    display:inline-flex;
-}
+    cursor: pointer;
+} */
