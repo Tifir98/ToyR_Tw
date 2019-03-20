@@ -5,11 +5,17 @@ function onLoad()
     sideOpen = false;
     document.getElementById("left-bar").style.display = "none";
     document.getElementById("menu-icon").style.left = "0";
+    
     var section = document.getElementById("section1");
     var topBar = document.getElementById("top-bar");
     section.style.top = "0";
     var sectionHeight = document.documentElement.clientHeight - (section.getBoundingClientRect().bottom) * 1.5;
     section.style.setProperty('top', sectionHeight + "px");
+
+    var rightLogo = document.getElementById("rightLogo");
+    var rightLogoHeight = topBar.getBoundingClientRect().height / 2 - rightLogo.getBoundingClientRect().height / 2;
+    // alert(topBar.getBoundingClientRect().height + " " + rightLogo.getBoundingClientRect().height + " " + rightLogoHeight);
+    rightLogo.style.setProperty('top', rightLogoHeight + "px");
 }
 
 function onResizeWindow()
@@ -19,6 +25,11 @@ function onResizeWindow()
     section.style.top = "0";
     var sectionHeight = document.documentElement.clientHeight - (section.getBoundingClientRect().bottom) * 1.5;
     section.style.setProperty('top', sectionHeight + "px");
+
+    var rightLogo = document.getElementById("rightLogo");
+    var rightLogoHeight = topBar.getBoundingClientRect().height / 2 - rightLogo.getBoundingClientRect().height / 2;
+    // alert(topBar.getBoundingClientRect().height + " " + rightLogo.getBoundingClientRect().height + " " + rightLogoHeight);
+    rightLogo.style.setProperty('top', rightLogoHeight + "px");
 }
 
 window.onresize = onResizeWindow;

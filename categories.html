@@ -14,14 +14,27 @@
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
     <nav id="top-bar">    
+    
+    <div class = "leftTopBar">
         <button id="menu-icon" onclick=burgerClick()>
            <i class = "fas fa-bars fa-2x"></i>  
         </button>
+
+        <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                <a class="search-btn" href="#">
+                        <i class="fas fa-search"></i>
+                </a>
+        </div>
+    </div>
+        
         <a href="index.html">
-        <button id="home-icon">
+            <img src="Images/toyr_logo.png" id="rightLogo">
+            <button id="home-icon">
             <i class="fas fa-home fa-2x"></i>
-        </button>
+            </button>
          </a>
+    
     </nav>
     
     <nav id="left-bar" class = "slideIn">
@@ -53,11 +66,11 @@
                 <span class="tabText"> Item 8</span>
         </div>
         <div id="companyLogo">
-                <span class="tabText">Company Logo</span>
+                <span class="tabText">© ToyR</span>
         </div>
     </nav>
 
-    <div class = "title">Anything more specific in mind?</div>
+    <div class = "title"><strong>Anything more specific in mind?</strong></div>
 
     <section id="section1"  onclick="outsideBarClick()">  
         <div class="panel"><div class="categoryPanel">Category1</div></div>

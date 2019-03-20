@@ -12,9 +12,12 @@ a{
 .title
 {
     position: absolute;
-    left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     top: 20%;
-    font-size: 3em;
+    font-size: 3vw;
 }
 #top-bar
 {
@@ -22,9 +25,13 @@ a{
     position: fixed;
     top: 0%;
     width: 100%;
-    height: 7%;
+    height: 60px;
     background: #395886;
     left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #menu-icon
 {
@@ -33,7 +40,7 @@ a{
     border: 0;
     color: white;
     float: left;
-    position: relative;
+    /* position: relative; */
     /* left: 0%; */
     top: 30%;
     margin-left: 10px;
@@ -44,7 +51,7 @@ a{
     background: none;
     border: 0;
     color: white;
-    position: relative;
+    /* position: relative; */
     float: right;
     top: 30%;
     margin-right: 10px;
@@ -52,6 +59,8 @@ a{
 #left-bar
 {   
     /* display: none; */
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
     overflow: hidden;
     position: fixed;
     width: 15%;
@@ -63,18 +72,21 @@ a{
 }
 .items
 {
-    background: #E0DCD9;
+    background: linear-gradient(to right, #fdd017, #517eaf);
+    border-radius: 7px;
     padding: 2vh 0;
     margin: 2vh 0;
 }
 #companyLogo
 {
-    background: rgb(89, 89, 89);
+    background: none;
     margin-top: 17vh;
 }
 .tabText
 {
     margin-left: 30px;
+    
+    /* font-size: 2vh; */
 }
 #selected-item
 {
@@ -122,6 +134,7 @@ a{
     align-items: center;
     background: black;
     opacity: 0.7;
+    font-size: 2vw;
     /* justify-content: center; */
 }
 
@@ -155,4 +168,29 @@ a{
 {
     animation: iconSlideOut 1s ease;
     left: 0;
+}
+.search-box {
+    top: 30%;
+    margin-left: 20px;
+}
+.search-txt{
+    border:none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: white;
+    font-size: 1em;
+    transition: 0.4s;
+}
+#rightLogo
+{
+    width: 100px;
+    height: auto;
+}
+.leftTopBar
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
 }
