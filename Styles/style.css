@@ -174,11 +174,51 @@ a{
 }
 .name-box{
     position: relative;
-    float: center;
+    float: right ;
     background:none;
-    border: black;
-    border-width: 2px;
-    color:#fdd017;
-    margin-top: 17px;
-    margin-left: 50px;
+    flex-direction: column;
+    flex-wrap: wrap; 
+    display:flex;
+    color:Black;
+    margin-top: 5%;
+    margin-left: 10%;
+    size: 15; 
+}
+.name-txt{
+    position: relative;
+    float: left;
+    background:rgba(255,255,255,0);
+    margin-top: 5%;
+    margin-left: 10%;
+    width: -50%;
+}
+.rightSide
+{
+    position: relative;
+    float:right;
+    width: 110px;
+    height: 100px;
+    margin: -1.5% 0% 0% 0%;
+
+}
+.contractPanel{
+    position:relative;
+    float: left;
+    opacity: 0.7;
+    flex-direction:column;
+    border-radius: 5%;
+    display:flex;
+}
+.itemsPanel{
+    align-items: center;
+}
+.priceTag{
+
+    position:relative;
+    float: bottom;
+    
+}
+.title{
+    flex-flow:column wrap;
+    display:inline-flex;
 }
