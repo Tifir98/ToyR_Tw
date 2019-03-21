@@ -39,7 +39,7 @@
 }
 #left-bar
 {   
-    /* display: none; */
+    display: none;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
     overflow: hidden;

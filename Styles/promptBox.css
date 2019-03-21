@@ -1,0 +1,28 @@
+#promptBox
+{
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(rgb(51, 204, 255), white);
+    top : 20%;
+    left: 50%;
+    transform: translateX(-200px);
+    border-radius: 7px;
+    z-index : 2;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+}
+.promptButton
+{
+    position: relative;
+    background:linear-gradient(0deg, #3366ff, white);
+    border-radius: 7px;
+    height: 20%;
+    top: 78%;
+}
+.promptText
+{
+    text-align: center;
+}
