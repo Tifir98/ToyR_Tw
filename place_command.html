@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/navigation.css">
-    <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="Styles/command.css">
     <title>ToyR</title>
     <script src="main.js"></script>
@@ -70,11 +69,18 @@
                         </div>
                     </nav>
                 
-        <div class = "title">Current item
-                <div id="itemsPanel">
-                        <div class="panel"><div class="categoryPanel">Category1</div></div>
-                        <div class="panel"><div class="categoryPanel">Category2</div></div>
-                        <div class="panel"><div class="categoryPanel">Category3</div></div>
+        <div class = "title" onclick="outsideBarClick()">
+                <div id="itemsPanel" >
+                        <div class="panel"><div class="categoryPanel">Product1</div></div>
+                        <div class="panel"><div class="categoryPanel">Product2</div></div>
+                        <div class="panel"><div class="categoryPanel">Product3</div></div>
+                        <div class="panel"><div class="categoryPanel">Product1</div></div>
+                        <div class="panel"><div class="categoryPanel">Product2</div></div>
+                        <div class="panel"><div class="categoryPanel">Product3</div></div>
+                        <div class="panel"><div class="categoryPanel">Product1</div></div>
+                        <div class="panel"><div class="categoryPanel">Product2</div></div>
+                        <div class="panel"><div class="categoryPanel">Product3</div></div>
+                        <div class="panel"><div class="categoryPanel">Product1</div></div>
                 </div>
                 <div class="contractPanel">
                     <div class="name-box">Personal data <br/>
@@ -87,14 +93,13 @@
                         <input class="name-txt" type="text" name="" placeholder="Insert your state">
                         <input class="name-txt" type="text" name="" placeholder="Insert your city">
                         <input class="name-txt" type="text" name="" placeholder="Insert your full addres">
-                <div class="priceTag">Pret Total:</div>
+                    </div>
+                    <div class="placeOrder">
+                            <div class="priceTag">Pret Total:</div>
+                            <button class="orderButton"> Place Order!</button>
                     </div>
                 </div> 
-        </div>
-
-        <section id="section1"  onclick="outsideBarClick()">  
-            
-        </section>   
+        </div>  
        
     </body>
 </html>
