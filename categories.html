@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="Styles/navigation.css">
     <title>ToyR - Categories</title>
     <script src="Scripts/main.js"></script>
+    <script src="Scripts/shopping.js"></script>
 </head>
 <body onload="onLoad()">
     <div id="bg">
@@ -29,41 +30,42 @@
         </div>
     </div>
         
-    <div onclick="goHomePage()" id="rightTopBar">
-            <img src="Images/toyr_logo.png" id="rightLogo">
-            <i class="fas fa-home fa-2x" id="home-icon"></i>
+
+    <div id="rightTopBar">
+            <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+            <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
     </div>
 
     </nav>
     
     <nav id="left-bar" class = "slideIn">
-        <div class="items" id = "selected-item"> 
-            <span class="tabText"> Selected item</span> 
-        </div>
-        <div class="items">
-           <span class="tabText"> Item 1</span>
-        </div>
-        <div class="items">
-           <span class="tabText"> Item 2</span>
-        </div>
-        <div class="items">
-           <span class="tabText"> Item 3</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 4</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 5</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 6</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 7</span>
-        </div>
-        <div class="items">
-                <span class="tabText"> Item 8</span>
-        </div>
+            <div class="items" id = "selected-item"> 
+                    <span class="tabText"> Categories</span> 
+                </div>
+                <div class="items">
+                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
+                </div>
+                <div class="items">
+                   <span class="tabText"> Category 2</span>
+                </div>
+                <div class="items">
+                   <span class="tabText"> Category 3</span>
+                </div>
+                <div class="items">
+                        <span class="tabText"> Category 4</span>
+                </div>
+                <div class="items">
+                        <span class="tabText"> Category 5</span>
+                </div>
+                <div class="items">
+                        <span class="tabText"> Category 6</span>
+                </div>
+                <div class="items">
+                        <span class="tabText"> Category 7</span>
+                </div>
+                <div class="items">
+                        <span class="tabText"> Category 8</span>
+                </div>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>
