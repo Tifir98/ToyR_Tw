@@ -1,9 +1,12 @@
 .container {
-max-width: 1200px;
-max-height: 1200px;
+width: 90%;
 margin: 0 auto;
 padding: 15px;
 display: flex;
+flex-direction: row;
+justify-content: space-between;
+flex-wrap: nowrap;
+/* align-items: center; */
 }
 
 /* Columns */
@@ -11,7 +14,7 @@ display: flex;
 height: auto;
 width:42vw;
 border-radius: auto;
-margin-right: auto;
+/* margin-right: 300px; */
 margin-top: 5vw;
 position: relative;
 }
@@ -27,7 +30,7 @@ margin-top: 60px;
 width: 100%;
 position: absolute;
 left: 0;
-right: 300px;
+/* right: 300px; */
 top: 100px;
 opacity: 0;
 transition: all 0.3s ease;
