@@ -50,6 +50,10 @@ a{
     flex-direction: column;
     width: 25vw;
     margin: 1vh 0;
+    background: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }
 .panel 
 {
