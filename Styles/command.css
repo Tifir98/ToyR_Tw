@@ -1,3 +1,4 @@
+@import "keyframes.css";
 #bg
 {
     width: 100%;
@@ -10,17 +11,98 @@
 body
 {
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 }
 a{
     color: white;
+    text-decoration: none;
 }
 .title
 {
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 75%;
     top: 20%;
     font-size: 3vw;
+    margin: auto;
+}
+#itemsPanel
+{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+.contractPanel
+{
+    display: flex;
+    flex-direction: column;
+}
+.name-txt
+{
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    margin: 1vh 0;
+    background: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+.panel 
+{
+    width : 150px;
+    height: 100px;
+    /* position: relative;
+    float: left; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    margin: 1%;
+    border-radius: 15px;
+    background: url("../Images/toys.jpeg");
+    background-size: 100%;
+}
+.categoryPanel
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+    align-items: center;
+    background: black;
+    opacity: 0.7;
+    font-size: 2vw;
+    /* justify-content: center; */
+}
+.panel:hover
+{
+    animation: backZoom 1s ease;
+    background-size: 150%;
+}
+.categoryPanel:hover
+{
+    /* animation: panelAppear 1s ease; */
+    opacity: 0;
+}
+.orderButton
+{
+    width: 100%;
+    height: 6vh;
+    border-radius: 7px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4vh;
 }

@@ -39,7 +39,7 @@
 }
 #left-bar
 {   
-    /* display: none; */
+    display: none;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
     overflow: hidden;
@@ -105,32 +105,6 @@
     font-size: 1em;
     transition: 0.4s;
 }
-.filterToys select{
-    position:absolute;
-    left:89.9%;
-    bottom:82%;
-    background: rgba(138, 37, 177, 0.795);
-    padding: 1%;
-    width: 10%;
-    /* border: none; */
-    border-radius: 10%;
-    border-width:thin;
-    font-size: 75%;
-    color:	white;
-    -webkit-appearance: button;
-    outline: none; 
-}
-.filterPosition{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    top: 90%;
-    right:22%;
-    font-size: 3vw;
-}
 #rightLogo
 {
     width: 100px;
@@ -150,17 +124,4 @@
     flex-wrap: nowrap;
     align-items: center;
     cursor: pointer;
-}
-.mostWantedLogo
-{
-    position: absolute;
-    right:87%;
-    bottom: 65%;
-    width:11.5%;
-}
-.listMostWanted{
-    position:absolute;
-    align-items: center;
-    left:30%;
-    width:100%;
 }

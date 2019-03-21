@@ -1,0 +1,76 @@
+.filterToys select{
+    position:absolute;
+    left:89.9%;
+    bottom:82%;
+    background: rgba(138, 37, 177, 0.795);
+    padding: 1%;
+    width: 10%;
+    /* border: none; */
+    border-radius: 10%;
+    border-width:thin;
+    font-size: 75%;
+    color:	white;
+    -webkit-appearance: button;
+    outline: none; 
+}
+.filterPosition{
+    /* position: absolute; */
+    width: 75%;
+    top: 90px;
+    /* right:22%; */
+    vertical-align: middle;
+    font-size: 3vw;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+
+    /* margin-right: 10%; */
+}
+.mostWantedLogo
+{
+    position: absolute;
+    right:87%;
+    top: 90px;
+    width:11.5%;
+}
+.listMostWanted{
+    /* position: relative;; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    left:30%;
+    width:100%;
+    margin-top: 90px;
+}
+.panel
+{
+    width : 25%;
+    height: 15vh;
+    position: relative;
+    float: left;
+    margin: 2% 2% 0% 0%;
+    border-radius: 15px;
+    background: url("../Images/toys.jpeg");
+    background-size: 100%;
+}
+.productPanel
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    background: black;
+    opacity: 0.7;
+    font-size: 2vw;
+}
+.productPanel:hover
+{
+    opacity: 0;
+}

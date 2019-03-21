@@ -16,6 +16,8 @@ function onLoad()
     var rightLogoHeight = topBar.getBoundingClientRect().height / 2 - rightLogo.getBoundingClientRect().height / 2;
     // alert(topBar.getBoundingClientRect().height + " " + rightLogo.getBoundingClientRect().height + " " + rightLogoHeight);
     rightLogo.style.setProperty('top', rightLogoHeight + "px");
+
+    
     
 }
 
@@ -64,28 +66,4 @@ function outsideBarClick()
 function goHomePage()
 {
     window.location.href = "index.html";
-}
-
-function goPlaceCommandPage()
-{
-    window.location.href = "place_command.html";
-}
-function goCategoriesPage()
-{
-    window.location.href = "categories.html";
-}
-function goLoginPage()
-{
-    window.location.href = "login.html";
-}
-function goBestSeller()
-{
-    window.location.href = "bestSeller.html";
-}
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
 }
