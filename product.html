@@ -13,11 +13,16 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="Scripts/main.js"></script>
     <script src = "Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
     <title>ToyR - Product</title>
     
   </head>
 
   <body onload="onLoad()">
+
+    <?php include_once('Scripts/echoData.php');?>
+    
     <div id="bg" onload="promptOnLoad()">
         <img src="Images/background1.jpg"class="stretch">
     </div>
@@ -48,36 +53,13 @@
         </nav>
         
         <nav id="left-bar" class = "slideIn">
-                <div class="items" id = "selected-item"> 
-                        <span class="tabText"> Product 1</span> 
-                    </div>
-                    <div class="items">
-                       <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 2</span>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 3</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 4</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 5</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 6</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 7</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 8</span>
-                    </div>
-            <div id="companyLogo">
-                    <span class="tabText">© ToyR</span>
-            </div>
+          <div class="items" id = "selected-item"> 
+                  <span class="tabText"> Categories</span> 
+              </div>
+              <?php echoLeftTab(); ?>
+          <div id="companyLogo">
+                  <span class="tabText">© ToyR</span>
+          </div>
         </nav>
 
             <div id="promptBox">

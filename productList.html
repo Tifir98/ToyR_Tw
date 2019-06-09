@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/productList.css">
+    <title>ToyR - Best Sellers</title>
+    <script src="Scripts/main.js"></script>
+    <script src="Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
+</head>
+<body onload="onLoad()">
+
+    <?php include_once('Scripts/echoData.php');?>
+    
+    <div id="bg">
+        <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
+    </div>
+    <nav id="top-bar">    
+    
+    <div class = "leftTopBar">
+        <button id="menu-icon" onclick=burgerClick()>
+           <i class = "fas fa-bars fa-2x"></i>  
+        </button>
+
+        <div class="search-box">
+                <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                <a class="search-btn" href="#">
+                        <i class="fas fa-search"></i>
+                </a>
+        </div>
+    </div>
+        
+    <div id="rightTopBar">
+            <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+            <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+    </div>
+
+    </nav>
+    
+    <nav id="left-bar" class = "slideIn">
+        <div class="items" id = "selected-item"> 
+                <span class="tabText"> Categories</span> 
+            </div>
+        <?php echoLeftTab(); ?>
+        <div id="companyLogo">
+                <span class="tabText">© ToyR</span>
+        </div>
+    </nav>
+
+    <section class="filterPosition" onclick="outsideBarClick()">
+        <div class="listMostWanted">
+            <?php echoProductList(); ?>
+        </div>  
+</section>
+<img src="Images/most_wanted.png" class="mostWantedLogo">
+<div class="filterToys">
+<select>
+     <option>--Filters--</option>
+     <option>0-3 years old</option>
+     <option>5-10 years old</option>
+     <option>10+ years old</option>
+</select>      
+
+</body>
+</html>

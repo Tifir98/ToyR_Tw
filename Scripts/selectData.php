@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function getConnection(){
 
     $DB_HOST = '35.198.68.195';
@@ -40,9 +42,40 @@ function getCategories(){
 
 }
 
-if(isset($_POST['catId'])){
-    echo 'bestSeller.html';
+function getProductList($catId){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM Produs WHERE categorie = \"$catId\"";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data = array();
+
+    while($row = $query_result->fetch_assoc()){
+        array_push($return_data, array(
+            'id' => $row['id'],
+            'nume' => $row['Nume'],
+            'url' => $row['Url'],
+            'rating' => $row['Rating'],
+            'pret' => $row['Pret'],
+            'stoc' => $row['Stoc'],
+            'descriptie' => $row['Descriptie'],
+            'seller' => $row['Seller'],
+            'categorie' => $row['Categorie']
+        ));
+    }
+
+    return $return_data;
 }
+
+if(isset($_POST['catId'])){
+    
+    $_SESSION['catId'] = $_POST['catId'];
+
+    echo 'productList.html';
+
+}
+
 
 
 ?>
