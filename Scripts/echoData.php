@@ -38,6 +38,7 @@ function echoProduct(){
 
     $result = getProduct($_SESSION['prodId']);
 
+    $id = $_SESSION['prodId'];
     $name = $result[0]['nume'];
     $url = $result[0]['url'];
     $price = $result[0]['pret'];
@@ -68,7 +69,7 @@ function echoProduct(){
       <!-- Product Pricing -->
       <div class=\"product-price\">
         <span>$price</span>
-        <a href=\"#\" class=\"cart-btn\" onclick=\"openPrompt()\">Add to cart</a>
+        <a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this)\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>
       </div>
     </div>";
 }
