@@ -40,5 +40,9 @@ function getCategories(){
 
 }
 
+if(isset($_POST['catId'])){
+    echo 'bestSeller.html';
+}
+
 
 ?>

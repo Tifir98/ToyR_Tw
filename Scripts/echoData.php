@@ -6,7 +6,8 @@ function echoCategories(){
 
     foreach($result as $row){
         $name = $row['nume'];
-        echo "<div class=\"panel\"><div class=\"categoryPanel\">$name</div></div>";
+        $id = $row['id'];
+        echo "<div class=\"panel\"><div class=\"categoryPanel\" data-name = \"$id\" onclick=\"getTabId(this)\">$name</div></div>";
     }
 }
 
@@ -15,9 +16,10 @@ function echoLeftTab(){
 
     foreach($result as $row){
         $name = $row['nume'];
-        echo "<div class=\"items\"><span class=\"tabText\"> $name</span></div>";
+        $id = $row['id'];
+        echo "<div class=\"items\"><span class=\"tabText\" data-name = \"$id\" onclick=\"getTabId(this)\"> $name</span></div>";
     }
-}
 
+}
 
 ?>
