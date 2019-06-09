@@ -12,6 +12,7 @@
     <script src="Scripts/shopping.js"></script>
 </head>
 <body onload="onLoad()">
+    <?php include_once('Scripts/echoData.php');?>
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -42,30 +43,7 @@
             <div class="items" id = "selected-item"> 
                     <span class="tabText"> Categories</span> 
                 </div>
-                <div class="items">
-                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 2</span>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 3</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 4</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 5</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 6</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 7</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 8</span>
-                </div>
+                <?php echoLeftTab(); ?>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>
@@ -74,14 +52,7 @@
     <div class = "title"><strong>Anything more specific in mind?</strong></div>
 
     <section id="section1"  onclick="outsideBarClick()">  
-        <div class="panel"> <a href="bestSeller.html"><div class="categoryPanel">Category1</div> </a></div>
-        <div class="panel"><div class="categoryPanel">Category2</div></div>
-        <div class="panel"><div class="categoryPanel">Category3</div></div>
-        <div class="panel"><div class="categoryPanel">Category4</div></div>
-        <div class="panel"><div class="categoryPanel">Category5</div></div>
-        <div class="panel"><div class="categoryPanel">Category6</div></div>
-        <div class="panel"><div class="categoryPanel">Category7</div></div>
-        <div class="panel"><div class="categoryPanel">Category8</div></div>
+       <?php echoCategories()?>
     </section>  
 </body>
 </html>
