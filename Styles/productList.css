@@ -46,7 +46,7 @@
     width:100%;
     margin-top: 90px;
 }
-.panel
+.panelList
 {
     width : 25%;
     height: 15vh;
@@ -73,4 +73,9 @@
 .productPanel:hover
 {
     opacity: 0;
+}
+.panelList:hover
+{
+    animation: backZoom 1s ease;
+    background-size: 150%;
 }

@@ -42,6 +42,27 @@ function getCategories(){
 
 }
 
+function getCategory($catId){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM Categorii WHERE id = \"$catId\"";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data = array();
+
+    $row = $query_result->fetch_assoc();
+    
+    $return_data = array();
+
+    array_push($return_data, array(
+        "id" => $row['id'],
+        "nume" => $row['nume']
+    ));
+
+    return $return_data;
+}
+
 function getProductList($catId){
     $conn = getConnection();
 
@@ -68,12 +89,44 @@ function getProductList($catId){
     return $return_data;
 }
 
+function getProduct($prodId){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM Produs WHERE id = \"$prodId\"";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data = array();
+
+    $row = $query_result->fetch_assoc();
+
+    array_push($return_data, array(
+        'id' => $row['id'],
+        'nume' => $row['Nume'],
+        'url' => $row['Url'],
+        'rating' => $row['Rating'],
+        'pret' => $row['Pret'],
+        'stoc' => $row['Stoc'],
+        'descriptie' => $row['Descriptie'],
+        'seller' => $row['Seller'],
+        'categorie' => $row['Categorie']
+    ));
+
+    return $return_data;
+}
+
 if(isset($_POST['catId'])){
     
     $_SESSION['catId'] = $_POST['catId'];
 
     echo 'productList.html';
+}
 
+if(isset($_POST['prodId'])){
+    
+    $_SESSION['prodId'] = $_POST['prodId'];
+
+    echo 'product.html';
 }
 
 
