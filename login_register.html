@@ -22,7 +22,7 @@
                     <button id="menu-icon" onclick=burgerClick()>
                        <i class = "fas fa-bars fa-2x"></i>  
                     </button>
-            
+                    
                     <div class="search-box">
                             <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
                             <a class="search-btn" href="#">
@@ -70,29 +70,24 @@
                             <span class="tabText">© ToyR</span>
                     </div>
                 </nav>
+               
                 <section id="RegisterSection" onclick="outsideBarClick()">
+                  <form action="register_page.php" class="form-container" method="POST">
                     <div class="title">Register:</div>
                     <div class="RegisterPanel">
                     <div class="name-box">Autentification data <br/>
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Id!">
-                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
-                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Email!">
+                        <input class="name-txt" type="text" name="email" placeholder="Insert your Email!">
+                        <input class="name-txt" type="password" name="pass" placeholder="Insert your Password!">
                     </div>
                     <div class="name-box">Personal data <br/>
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Name">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your NickName">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Full Addres">
-                    </div>
-                    <div>
-                        <form>Select your our gender: <br/>
-                            <input type="radio" name="sex" value="male">Male<br/>
-                            <input type="radio" name="sex" value="female">Female<br/>
-                        </form>
+                        <input class="name-txt" type="text" name="fname" placeholder="Insert your Firstname">
+                        <input class="name-txt" type="text" name="lname" placeholder="Insert your Lastname">
+                        <input class="name-txt" type="text" name="address" placeholder="Insert your Full Address">
                     </div>
                     <div class="placeOrder">
-                            <button class="orderButton" onclick="registerClient()"> Submit</button>
+                            <button type="submit" class="orderButton" > Submit</button>
                     </div>
+                </form>
                 </div> 
             </section>
     </body>

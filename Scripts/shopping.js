@@ -17,3 +17,9 @@ function orderPlaced()
 {
     alert("Your order has been placed!");
 }
+function goProduct()
+{
+   
+    document.getElementById("demo").innerHTML = $('.panel').text();
+    window.location.href = "panelToProduct.html";
+}
