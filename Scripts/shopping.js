@@ -17,7 +17,8 @@ function orderPlaced()
 {
     alert("Your order has been placed!");
 }
-function registerClient()
+function registerErroor()
 {
-    alert("Your account have been registered!")
+   alert("Date invalide!");
 }
+

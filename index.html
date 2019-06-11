@@ -9,16 +9,42 @@
     <title>ToyR</title>
 </head>
 <body>
-    <div id="bg">
-        <img src="Images/background1.jpg" class="stretch">
-    </div>
-    <div class="wrapper">
-    <a href="categories.html">
-        <button id="startButton">
-       <div class="button-text">
-        Start Shopping</div>
-    </button>
-</a>
-    </div>
+                <div id="bg">
+                    <img src="Images/background1.jpg" class="stretch">
+                </div>
+                <div class="wrapper">
+                <a href="categories.html">
+                    <button id="startButton">
+                   <div class="button-text">
+                    Start Shopping</div>
+                </button>
+            </a>
+                </div>
+                <button class="open-button" onclick="openForm()">Open Login/Register</button>
+            
+            <div class="form-popup" id="myForm">
+              <form action="index_action_page.php" class="form-container" method="POST">
+                <h1>Login</h1>
+            
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                <button type="button" class="btn register" onclick="window.location.href='login_register.html'">Register</button>
+              </form>
+            </div>
+            
+            <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+            </script>
 </body>
 </html>
