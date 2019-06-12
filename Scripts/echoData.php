@@ -22,6 +22,7 @@ function echoLeftTab(){
     }
 }
 
+
 function echoProductList(){
     $result = getProductList($_SESSION['catId']);
 
@@ -32,6 +33,21 @@ function echoProductList(){
         $price = $row['pret'];
         echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
     }
+}
+function echoSalesList(){
+  $result = getSales($_SESSION['saleName']);
+  
+  foreach($result as $row){ 
+    $resultProduct = getProduct($row['id_produs']);
+    foreach($resultProduct as $rowProduct){
+      $id = $rowProduct['id'];
+      $name = $rowProduct['nume'];
+      $url = $rowProduct['url'];
+      $price = $rowProduct['pret'];
+      echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
+    }
+
+  }
 }
 
 function echoProduct(){

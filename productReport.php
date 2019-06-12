@@ -5,7 +5,8 @@
   $database = new Database();
   $db = $database->connect();
       $output = '';  
-      $sql = "SELECT p.nume as nume,url,rating,pret,stoc,descriptie,seller,c.nume as categorie FROM Produs as p LEFT JOIN Categorii c on c.id=p.categorie";  
+      $sql = "SELECT DISTINCT s.nume as nume,s.reducere as reducere,sum(pret)-((sum(pret)*s.reducere )/100) as pret FROM Sales s join Produs p on p.id=s.id_produs 
+      Group by nume,reducere";  
       $stmt =$db->prepare($sql);
 
       // Execute query
@@ -16,14 +17,9 @@
   
          $output .= '<tr>       
                           <td>'.$nume.'</td>  
-                          <td>'.$url.'</td>  
-                          <td>'.$rating.'</td>  
+                          <td>'.$reducere.'%</td>
                           <td>'.$pret.' RON</td>
-                          <td>'.$stoc.'</td>
-                          <td>'.$descriptie.'</td>  
-                          <td>'.$seller.'</td>
-                          <td>'.$categorie.'</td>
-                     </tr>  ';
+                    </tr>  ';
   
       }
 
@@ -51,43 +47,35 @@
       <h3 align="center">Raport:</h3><br /><br />  
       <table border="1" cellspacing="0" cellpadding="5">  
            <tr>  
-           <th width="10%">Nume</th>  
-           <th width="20%">Url</th>  
-           <th width="10%">Rating</th>  
-           <th width="10%">Pret</th>  
-           <th width="10%">Stoc</th>  
-           <th width="20%">Descriptie</th>  
-           <th width="10%">Seller</th>  
-           <th width="10%">Categorie</th>    
+           <th width="34%">Nume</th>  
+           <th width="33%">Reducere</th>  
+           <th width="33%">Pret Pachet</th>     
            </tr>  
       ';  
       $content .= fetch_data();  
       $content .= '</table>';  
       $obj_pdf->writeHTML($content);  
-      $obj_pdf->Output('salesReport.pdf', 'I');  
+      $obj_pdf->Output('productReport.pdf', 'I');  
  }  
  else
  if(isset($_POST["create_csv"]))
  {
-        $file_open = fopen("salesReport.csv", "w");
-        $no_rows = count(file("salesReport.csv"));
+        $file_open = fopen("productReport.csv", "w");
+        $no_rows = count(file("productReport.csv"));
         include_once 'Database.php';
         $database = new Database();
         $db = $database->connect();
             $output = '';  
-            $sql = "SELECT p.nume as nume,url,rating,pret,stoc,descriptie,seller,c.nume as categorie FROM Produs as p LEFT JOIN Categorii c on c.id=p.categorie";  
+            $sql = "SELECT DISTINCT s.nume as nume,s.reducere as reducere,sum(pret)-((sum(pret)*s.reducere )/100) as pret FROM Sales s join Produs p on p.id=s.id_produs 
+             Group by nume,reducere";  
             $stmt =$db->prepare($sql);
             $stmt->execute();
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
               extract($row);
                            $form_data = array(
                                 'nume'  => $nume,
-                                'url'  => $url,
-                                'rating' => $rating,
-                                'pret'  => $pret.' RON',
-                                'descriptie' => $descriptie,
-                                'seller' => $seller,
-                                'categorie' => $categorie
+                                'reducere'  => $reducere,
+                                'pret'  => $pret.' RON'
                         );
                         fputcsv($file_open, $form_data);
                 }         
@@ -174,16 +162,11 @@
                      <h3 align="center">Raport:</h3><br />  
                      <div class="table-responsive">  
                           <table class="table table-bordered" border="1">  
-                               <tr>  
-                                    <th width="10%">Nume</th>  
-                                    <th width="20%">Url</th>  
-                                    <th width="10%">Rating</th>  
-                                    <th width="10%">Pret</th>  
-                                    <th width="10%">Stoc</th>  
-                                    <th width="20%">Descriptie</th>  
-                                    <th width="10%">Seller</th>  
-                                    <th width="10%">Categorie</th>  
-                               </tr>  
+                          <tr>  
+                            <th width="34%">Nume</th>  
+                            <th width="33%">Reducere</th>  
+                            <th width="33%">Pret Pachet</th>     
+                          </tr>  
                           <?php  
                           echo fetch_data();  
                           ?>  

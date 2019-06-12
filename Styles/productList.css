@@ -35,6 +35,13 @@
     top: 90px;
     width:11.5%;
 }
+.addSalesToCartLogo
+{
+    position: absolute;
+    left:87%;
+    bottom: 70%;
+    width:7%;
+}
 .listMostWanted{
     /* position: relative;; */
     display: flex;

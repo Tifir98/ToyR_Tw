@@ -49,14 +49,14 @@
         <button id="menu-icon" onclick=burgerClick()>
            <i class = "fas fa-bars fa-2x"></i>  
         </button>
-<form class="search-box" action="script.php">
-        <div>
-                <input class="search-txt" type="text" name="toySearch" placeholder="Search for a toy!">
-                <a class="search-btn" href="#" type="submit">
-                        <i class="fas fa-search"></i>
-                </a>
-        </div>
-</form>
+        <form class="search-box" action="Scripts/searchScript.php" method="POST">
+            <div>
+                    <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
+                    <a class="search-btn" type="submit">
+                            <button type="submit"><i class="fas fa-search" ></i></button>
+                    </a>
+            </div>
+    </form>
     </div>
         
 

@@ -67,13 +67,12 @@
       return false;
     }
     public function SearchProduct(){
-      $query ='SELECT DISTINCT id,nume,url,pret FROM ' . $this->table . ' WHERE lower(nume)=lower(:nume)';
+      $query ='SELECT DISTINCT id,nume,url,pret FROM ' . $this->table . ' WHERE lower(nume) LIKE lower(:nume) ';
       $stmt= $this->conn->prepare($query);
+      $this->nume = "%".$this->nume."%";
       $stmt->bindParam(':nume',$this->nume);
       $stmt->execute();
 
-      return $stmt;
-
-      
+      return $stmt;   
     }
   }?>

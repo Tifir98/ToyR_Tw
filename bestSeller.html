@@ -8,97 +8,58 @@
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="Styles/navigation.css">
     <link rel="stylesheet" href="Styles/productList.css">
-    <title>ToyR - Best Sellers</title>
+    <title>ToyR - Sales</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
 </head>
 <body onload="onLoad()">
-    <div id="bg">
-        <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
-    </div>
-    <nav id="top-bar">    
-    
-    <div class = "leftTopBar">
-        <button id="menu-icon" onclick=burgerClick()>
-           <i class = "fas fa-bars fa-2x"></i>  
-        </button>
-
-        <div class="search-box">
-                <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
-                <a class="search-btn" href="#">
-                        <i class="fas fa-search"></i>
-                </a>
-        </div>
-    </div>
-        
-    <div id="rightTopBar">
-            <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
-            <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
-    </div>
-
-    </nav>
-    
-    <nav id="left-bar" class = "slideIn">
-            <div class="items" id = "selected-item"> 
-                    <span class="tabText"> Best Sellers</span> 
-                </div>
-                <div class="items">
-                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 2</span>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 3</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 4</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 5</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 6</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 7</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 8</span>
-                </div>
-        <div id="companyLogo">
-                <span class="tabText">© ToyR</span>
-        </div>
-    </nav>
-
-    <section class="filterPosition" onclick="outsideBarClick()">
-        <div class="listMostWanted"> 
-            <div class="panel" onclick="goProduct()"><div class="productPanel">Stuart</div></a></div>
-            <div class="panel"><div class="productPanel">Product2</div></div>
-            <div class="panel"><div class="productPanel">Product3</div></div>
-            <div class="panel"><div class="productPanel">Product4</div></div>
-            <div class="panel"><div class="productPanel">Product5</div></div>
-            <div class="panel"><div class="productPanel">Product1</div></div>
-            <div class="panel"><div class="productPanel">Product2</div></div>
-            <div class="panel"><div class="productPanel">Product3</div></div>
-            <div class="panel"><div class="productPanel">Product4</div></div>
-            <div class="panel"><div class="productPanel">Product5</div></div>
-            <div class="panel"><div class="productPanel">Product1</div></div>
-            <div class="panel"><div class="productPanel">Product2</div></div>
-            <div class="panel"><div class="productPanel">Product3</div></div>
-            <div class="panel"><div class="productPanel">Product4</div></div>
-            <div class="panel"><div class="productPanel">Product5</div></div>
-
-    </div>  
-</section>
-<img src="Images/most_wanted.png" class="mostWantedLogo">
-<div class="filterToys">
-<select>
-     <option>--Filters--</option>
-     <option>0-3 years old</option>
-     <option>5-10 years old</option>
-     <option>10+ years old</option>
-</select>      
+                <?php include_once('Scripts/echoData.php');?>
+                <?php include_once('echoSales.php');?>
+                <div id="bg">
+                                <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
+                            </div>
+                            <nav id="top-bar">    
+                            
+                            <div class = "leftTopBar">
+                                <button id="menu-icon" onclick=burgerClick()>
+                                   <i class = "fas fa-bars fa-2x"></i>  
+                                </button>
+                        
+                                <form class="search-box" action="Scripts/searchScript.php" method="POST">
+                                    <div>
+                                            <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
+                                            <a class="search-btn" type="submit">
+                                                    <button type="submit"><i class="fas fa-search" ></i></button>
+                                            </a>
+                                    </div>
+                            </form>
+                            </div>
+                                
+                        
+                            <div id="rightTopBar">
+                                    <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+                                    <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                            </div>
+                        
+                            </nav>
+                            
+                            <nav id="left-bar" class = "slideIn">
+                                    <div class="items" id = "selected-item"> 
+                                            <span class="tabText"> Categories</span> 
+                                        </div>
+                                        <?php echoLeftTab(); ?>
+                                <div id="companyLogo">
+                                        <span class="tabText">© ToyR</span>
+                                </div>
+                            </nav>
+                        
+                            <div class = "title"><strong>Sales</strong></div>
+                        
+                            <section id="section1"  onclick="outsideBarClick()">  
+                                <?php echoSales() ?>
+                            </section>     
 
 </body>
 </html>

@@ -16,9 +16,6 @@ function getConnection(){
     }
     
     return $conn;
-
-
-
 }
 
 function getCategories(){
@@ -114,6 +111,22 @@ function getProduct($prodId){
 
     return $return_data;
 }
+function getSales($salesName){
+    $conn = getConnection();
+
+    $sql = "SELECT id_produs FROM Sales WHERE nume = \"$salesName\"";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data = array();
+
+    while($row = $query_result->fetch_assoc()){
+    array_push($return_data, array(
+        'id_produs' => $row['id_produs']
+        ));
+    }
+    return $return_data;
+}
 
 if(isset($_POST['catId'])){
     
@@ -127,6 +140,13 @@ if(isset($_POST['prodId'])){
     $_SESSION['prodId'] = $_POST['prodId'];
 
     echo 'product.html';
+}
+
+if(isset($_POST['saleName']))
+{
+    $_SESSION['saleName']=$_POST['saleName'];
+
+    echo 'productSales.html';
 }
 
 

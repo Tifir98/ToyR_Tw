@@ -47,3 +47,27 @@ function getProductId(element){
 
     reqPOST.send(params);
 }
+
+function getSales(element){
+    var reqPOST = new XMLHttpRequest();
+
+    var saleName = element.getAttribute("data-name");
+
+    var url = "Scripts/selectData.php";
+
+    var params = "saleName=" + saleName;
+
+    reqPOST.open("POST", url, true);
+
+    reqPOST.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    reqPOST.setRequestHeader("Content-length", params.length);
+    reqPOST.setRequestHeader("Connection", "close");
+
+    reqPOST.onreadystatechange = function(){
+        if(reqPOST.readyState == 4 && reqPOST.status == 200){
+            window.location.href = reqPOST.responseText;
+        }
+    }
+
+    reqPOST.send(params);
+}

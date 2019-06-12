@@ -32,8 +32,10 @@
     $db = $database->connect();
     $sales=$_POST['sale'];
     $saleName=$_POST['nameSale'];
+    $saleSaving=$_POST['reducere'];
     $insertSale = new Sales($db);
     $insertSale->nume=$saleName;
+    $insertSale->reducere=$saleSaving;
     foreach($sales as   $sale){
         $insertSale->idProdus=$sale;
         $insertSale->Insert();
@@ -123,6 +125,15 @@
         <table class="table table-bordered"> 
         <tr><th>Insert Sales Name:</th>
             <th><input type="text" name="nameSale"></th></tr>
+            <th>Sale Saving :</th>
+            <th><select  name="reducere">
+                                <option value="1">+0%</option>
+                                <option value="5">+5%</option>
+                                <option value="10">+10%</option>
+                                <option value="15">+15%</option>
+                                <option value="25">+25%</option>
+                                <option value="50">+50%</option>
+                         </select></th>
         <tr>  
              <th width="20%">Nume</th>  
              <th width="16%">Rating</th>  

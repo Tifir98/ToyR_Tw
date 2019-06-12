@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="Styles/navigation.css">
     <link rel="stylesheet" href="Styles/productList.css">
-    <title>ToyR - Categories</title>
+    <title>ToyR - Best Sellers</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script src="Scripts/selectTabs.js"></script>
 </head>
 <body onload="onLoad()">
+
     <?php include_once('Scripts/echoData.php');?>
-    <?php include_once('echoSales.php');?>
+    
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -28,16 +29,15 @@
         </button>
 
         <form class="search-box" action="Scripts/searchScript.php" method="POST">
-                <div>
-                        <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
-                        <a class="search-btn" type="submit">
-                                <button type="submit"><i class="fas fa-search" ></i></button>
-                        </a>
-                </div>
-        </form>
+            <div>
+                    <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
+                    <a class="search-btn" type="submit">
+                            <button type="submit"><i class="fas fa-search" ></i></button>
+                    </a>
+            </div>
+    </form>
     </div>
         
-
     <div id="rightTopBar">
             <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
             <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
@@ -46,20 +46,21 @@
     </nav>
     
     <nav id="left-bar" class = "slideIn">
-            <div class="items" id = "selected-item"> 
-                    <span class="tabText"> Categories</span> 
-                </div>
-                <?php echoLeftTab(); ?>
+        <div class="items" id = "selected-item"> 
+                <span class="tabText"> Categories</span> 
+            </div>
+        <?php echoLeftTab(); ?>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>
     </nav>
-
-    <div class = "title"><strong>Anything more specific in mind?</strong></div>
-
-    <section id="section1"  onclick="outsideBarClick()">  
-                <?php echoSales(); ?>
-    </section>  
-
+    <section><i class="far fa-plus-square fa-2x"></i></section>
+    <section class="filterPosition" onclick="outsideBarClick()">
+        <div class="listMostWanted">
+            <?php echoSalesList(); ?>
+        </div>  
+</section>
+<img src="Images/most_wanted.png" class="mostWantedLogo">   
+<div class="addSalesToCartLogo"><i class="far fa-plus-square fa-2x" id="addToCart" onclick="addData.php"></i></div>
 </body>
 </html>
