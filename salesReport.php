@@ -109,6 +109,7 @@
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
     <script src="Scripts/selectTabs.js"></script>
+    <script src="Scripts/postData.js"></script>
 </head>
 <body onload="onLoad()">
 
@@ -141,6 +142,7 @@
                 <div id="rightTopBar">
                         <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
                         <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                        <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
                 </div>
             
                 </nav>
