@@ -13,6 +13,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
     <script src="Scripts/selectTabs.js"></script>
     <script src="Scripts/postData.js"></script>
+    <script src="Scripts/deleteData.js"></script>
 </head>
 <body onload="onLoad()">
 
@@ -70,8 +71,13 @@
                         <input class="name-txt" type="text" name="" placeholder="Insert your full addres">
                     </div>
                     <div class="placeOrder">
-                            <div class="priceTag">Pret Total: <?php echoTotalPrice(); ?>  </div>
+                            <div class="priceTag">Pret Total: <?php if(isset($_SESSION['loggedUser'])) echoTotalPrice(); ?>  </div>
                             <button class="orderButton" onclick="orderPlaced()"> Place Order!</button>
+                            <?php if(!isset($_SESSION['delete']))
+                                        echo "<button class=\"orderButton\" onclick=\"markItemsForRemoval()\"> Remove Items </button>";
+                                  else 
+                                        echo "<button class=\"orderButton\" onclick=\"unmarkItemsForRemoval()\"> Done </button>";
+                            ?>
                     </div>
                 </div> 
         </div>  

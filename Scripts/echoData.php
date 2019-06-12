@@ -75,14 +75,23 @@ function echoProduct(){
 }
 
 function echoCartList(){
-  $result = getCartList($_SESSION['loggedUser']);
+  if(isset($_SESSION['loggedUser'])){
+
+    $result = getCartList($_SESSION['loggedUser']);
 
   foreach($result as $row){
       $id = $row['id'];
       $name = $row['nume'];
       $price = $row['pret'];
-      echo "<div class=\"panel\"><div class=\"categoryPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name </div></div>";
+      $htmlObj = "<div class=\"panel\"><div class=\"categoryPanel\" data-name = \"$id\" onclick = ";
+      if(!isset($_SESSION['delete'])){
+        $htmlObj = $htmlObj . "\"getProductId(this)\"> $name </div></div>";
+      } else {
+        $htmlObj = $htmlObj . "\"removeItem(this)\"> $name </div></div>";
+      }
+      echo $htmlObj;
   }
+}
 }
 
 function echoTotalPrice(){
