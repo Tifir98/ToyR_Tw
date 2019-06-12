@@ -66,4 +66,14 @@
       printf("Error: $s.\n", $stmt->error);
       return false;
     }
+    public function SearchProduct(){
+      $query ='SELECT DISTINCT id,nume,url,pret FROM ' . $this->table . ' WHERE nume=:nume';
+      $stmt= $this->conn->prepare($query);
+      $stmt->bindParam(':nume',$this->nume);
+      $stmt->execute();
+
+      return $stmt;
+
+      
+    }
   }?>

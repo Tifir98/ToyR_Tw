@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/productList.css">
     <title>ToyR - Categories</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
@@ -15,6 +16,7 @@
 </head>
 <body onload="onLoad()">
     <?php include_once('Scripts/echoData.php');?>
+    <?php include_once('Scripts/searchScript.php');?>
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -26,13 +28,13 @@
         </button>
 
         <form class="search-box" action="Scripts/searchScript.php" method="POST">
-                <div>
-                        <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
-                        <a class="search-btn" type="submit">
-                                <button type="submit"><i class="fas fa-search" ></i></button>
-                        </a>
-                </div>
-        </form>
+            <div>
+                    <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
+                    <a class="search-btn" type="submit">
+                            <button type="submit"><i class="fas fa-search" ></i></button>
+                    </a>
+            </div>
+    </form>
     </div>
         
 
@@ -53,10 +55,10 @@
         </div>
     </nav>
 
-    <div class = "title"><strong>Anything more specific in mind?</strong></div>
+    <div class = "title"><strong>Got your results</strong></div>
 
     <section id="section1"  onclick="outsideBarClick()">  
-       <?php echoCategories()?>
+       <?php echoSearchFind()?>
     </section>  
 
 </body>

@@ -31,6 +31,13 @@ class Sales{
         printf("Error: $s.\n", $stmt->error);
         return false;
     }
+    public function SearchSales(){
+        $query='SELECT DISTINCT id,nume FROM ' . $this->table . ' WHERE nume=:nume';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':nume',$this->nume);
+        $stmt->execute();
+        return $stmt;
+    }
 }
 
 ?>

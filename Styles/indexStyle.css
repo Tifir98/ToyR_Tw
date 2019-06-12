@@ -116,10 +116,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
     background-color: royalblue;
 }
 
-.form-container .admin{
-  background-color: rgb(119, 25, 226);
-}
-
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;

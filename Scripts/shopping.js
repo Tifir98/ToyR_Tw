@@ -17,8 +17,3 @@ function orderPlaced()
 {
     alert("Your order has been placed!");
 }
-function registerErroor()
-{
-   alert("Date invalide!");
-}
-
