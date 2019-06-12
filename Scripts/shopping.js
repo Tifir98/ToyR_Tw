@@ -13,7 +13,3 @@ function openPrompt()
     document.body.style.background = "black";
     document.body.style.opacity = "0.75";
 }
-function orderPlaced()
-{
-    alert("Your order has been placed!");
-}

@@ -48,3 +48,27 @@ function logout(){
 
     reqPOST.send(params);
 }
+
+function placeOrder(){
+    var reqPOST = new XMLHttpRequest();
+
+    var url = "Scripts/postData.php";
+
+    var place = 1;
+
+    var params = "placeOrder=" + place;
+
+    reqPOST.open("POST", url, true);
+
+    reqPOST.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    reqPOST.setRequestHeader("Content-length", params.length);
+    reqPOST.setRequestHeader("Connection", "close");
+
+    reqPOST.onreadystatechange = function(){
+        if(reqPOST.readyState == 4 && reqPOST.status == 200){
+            alert(reqPOST.responseText);
+        }
+    }
+
+    reqPOST.send(params);
+}

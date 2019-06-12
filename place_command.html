@@ -81,7 +81,7 @@
                     </div>
                     <div class="placeOrder">
                             <div class="priceTag">Pret Total: <?php if(isset($_SESSION['loggedUser'])) echoTotalPrice(); ?>  </div>
-                            <button class="orderButton" onclick="orderPlaced()"> Place Order!</button>
+                            <button class="orderButton" onclick="placeOrder()"> Place Order!</button>
                             <?php if(!isset($_SESSION['delete']))
                                         echo "<button class=\"orderButton\" onclick=\"markItemsForRemoval()\"> Remove Items </button>";
                                   else 

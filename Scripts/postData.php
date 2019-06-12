@@ -23,6 +23,23 @@ function logout(){
     echo "User logged out";
 }
 
+function placeOrder(){
+    $conn = getConnection();
+
+    $loggedUser = $_SESSION['loggedUser'];
+    $date = date("Y/m/d");
+    $random_value = rand(1, 5);
+    $expected_date = date("Y/m/d", + strtotime($date. "+ $random_value days"));
+
+    $sql = "INSERT INTO Track_order(user_id, status, placed_at, expected_at) VALUES(\"$loggedUser\", \"Pending\", \"$date\", \"$expected_date\")";
+
+    if(mysqli_query($conn, $sql)){
+        echo "Order placed!";
+    } else{
+        echo die("Error at insertion" . mysqli_error($conn));
+    }
+}
+
 if(isset($_POST['prodId'])){
     if(isset($_SESSION['loggedUser'])){
         addToCart($_POST['prodId']);
@@ -35,5 +52,12 @@ if(isset($_POST['logout'])){
     logout();
 }
 
+if(isset($_POST['placeOrder'])){
+    if(!isset($_SESSION['loggedUser']))
+        echo "You have to be logged in to place an order!";
+    else{
+        placeOrder();
+    }
+}
 
 ?>
