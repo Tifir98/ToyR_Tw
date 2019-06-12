@@ -1,6 +1,7 @@
 <?php
 
 include_once('selectData.php');
+include_once('deleteData.php');
 
 function addToCart($prodId){
     $conn = getConnection();
@@ -31,12 +32,18 @@ function placeOrder(){
     $random_value = rand(1, 5);
     $expected_date = date("Y/m/d", + strtotime($date. "+ $random_value days"));
 
+    $cart_list = getCartList($loggedUser);
+
+    if(empty($cart_list))
+        echo "alert(\"No products in Cart\")";
+    foreach($cart_list as $cart_item){
+        deleteFromCart($cart_item['id']);
+    }
+    
     $sql = "INSERT INTO Track_order(user_id, status, placed_at, expected_at) VALUES(\"$loggedUser\", \"Pending\", \"$date\", \"$expected_date\")";
 
-    if(mysqli_query($conn, $sql)){
-        echo "Order placed!";
-    } else{
-        echo die("Error at insertion" . mysqli_error($conn));
+    if(!mysqli_query($conn, $sql)){
+        echo die("Error at insertion: " . mysqli_error($conn));
     }
 }
 

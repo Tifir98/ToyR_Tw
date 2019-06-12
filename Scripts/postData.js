@@ -66,7 +66,8 @@ function placeOrder(){
 
     reqPOST.onreadystatechange = function(){
         if(reqPOST.readyState == 4 && reqPOST.status == 200){
-            alert(reqPOST.responseText);
+            eval(reqPOST.responseText);
+            location.reload();
         }
     }
 
