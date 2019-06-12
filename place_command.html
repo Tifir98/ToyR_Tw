@@ -53,16 +53,7 @@
                 
         <div class = "title" onclick="outsideBarClick()">
                 <div id="itemsPanel" >
-                        <div class="panel"><a href="product.html"><div class="categoryPanel">Product1</a></div></div>
-                        <div class="panel"><div class="categoryPanel">Product2</div></div>
-                        <div class="panel"><div class="categoryPanel">Product3</div></div>
-                        <div class="panel"><div class="categoryPanel">Product1</div></div>
-                        <div class="panel"><div class="categoryPanel">Product2</div></div>
-                        <div class="panel"><div class="categoryPanel">Product3</div></div>
-                        <div class="panel"><div class="categoryPanel">Product1</div></div>
-                        <div class="panel"><div class="categoryPanel">Product2</div></div>
-                        <div class="panel"><div class="categoryPanel">Product3</div></div>
-                        <div class="panel"><div class="categoryPanel">Product1</div></div>
+                        <?php echoCartList(); ?>
                 </div>
                 <div class="contractPanel">
                     <div class="name-box">Personal data <br/>
@@ -77,7 +68,7 @@
                         <input class="name-txt" type="text" name="" placeholder="Insert your full addres">
                     </div>
                     <div class="placeOrder">
-                            <div class="priceTag">Pret Total:</div>
+                            <div class="priceTag">Pret Total: <?php echoTotalPrice(); ?>  </div>
                             <button class="orderButton" onclick="orderPlaced()"> Place Order!</button>
                     </div>
                 </div> 

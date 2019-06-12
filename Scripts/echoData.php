@@ -69,9 +69,26 @@ function echoProduct(){
       <!-- Product Pricing -->
       <div class=\"product-price\">
         <span>$price</span>
-        <a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this)\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>
+        <a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this); openPrompt()\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>
       </div>
     </div>";
+}
+
+function echoCartList(){
+  $result = getCartList($_SESSION['loggedUser']);
+
+  foreach($result as $row){
+      $id = $row['id'];
+      $name = $row['nume'];
+      $price = $row['pret'];
+      echo "<div class=\"panel\"><div class=\"categoryPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name </div></div>";
+  }
+}
+
+function echoTotalPrice(){
+  $totalPrice = getTotalPrice($_SESSION['loggedUser']);
+
+  echo $totalPrice;
 }
 
 ?>
