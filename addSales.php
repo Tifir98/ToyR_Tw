@@ -96,7 +96,7 @@
     
     <nav id="left-bar" class = "slideIn">
     <div class="items" id="select-item" onclick="trackOrder()">
-                                                View Order
+    <span class="tabText"> View Order</span>
                                               </div>
     <div class="items" id = "selected-item"> 
                                 <span class="tabText"> Categories</span> 

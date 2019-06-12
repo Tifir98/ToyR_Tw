@@ -58,37 +58,17 @@
         </nav>
         
         <nav id="left-bar" class = "slideIn">
-                <div class="items" id = "selected-item"> 
-                        <span class="tabText"> Product 1</span> 
-                    </div>
-                    <div class="items">
-                       <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 2</span>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 3</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 4</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 5</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 6</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 7</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 8</span>
-                    </div>
-            <div id="companyLogo">
-                    <span class="tabText">© ToyR</span>
-            </div>
-        </nav>
+                        <div class="items" id="select-item" onclick="trackOrder()">
+                                        <span class="tabText"> View Order</span>
+                                      </div>
+                    <div class="items" id = "selected-item"> 
+                            <span class="tabText"> Categories</span> 
+                        </div>
+                        <?php echoLeftTab(); ?>
+                <div id="companyLogo">
+                        <span class="tabText">© ToyR</span>
+                </div>
+            </nav>
 
         <form class="example" action="action_page.php">
             <input type="text" placeholder="Search.." name="search">
