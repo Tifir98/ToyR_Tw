@@ -3,100 +3,241 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>product</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <!-- CSS -->
-    <link href="Styles/styleproduct.css" rel="stylesheet">
-    <link rel="stylesheet" href="Styles/style.css">
     <meta name="robots" content="noindex,follow" />
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="Styles/styleProduct.css" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/promptBox.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="Scripts/main.js"></script>
+    <script src = "Scripts/shopping.js"></script>
+    <title>ToyR - Product</title>
+    
   </head>
 
-  <body>
-    <div id="bg">
+  <body onload="onLoad()">
+    <div id="bg" onload="promptOnLoad()">
         <img src="Images/background1.jpg"class="stretch">
     </div>
-    <nav id="top-bar">    
-        <button id="menu-icon">
-           <i class = "fas fa-bars fa-2x"></i>  
-        </button>
-        <a href="index.html">
-        <button id="home-icon">
-            <i class="fas fa-home fa-2x"></i>
-        </button>
-         </a>
-    </nav>
+
+    <div id="bg">
+            <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
+        </div>
+        <nav id="top-bar">    
+        
+        <div class = "leftTopBar">
+            <button id="menu-icon" onclick=burgerClick()>
+               <i class = "fas fa-bars fa-2x"></i>  
+            </button>
     
-    <nav id="left-bar">
-        <div class="items" id = "selected-item"> 
-            <span class="tabText"> Selected item</span> 
+            <div class="search-box">
+                    <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                    <a class="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                    </a>
+            </div>
         </div>
-        <div class="items">
-           <span class="tabText"> Item 1</span>
+            
+        <div id="rightTopBar">
+                <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+                <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                <a href="#" class="btn btn-info btn-lg">
+                  <span class="glyphicon glyphicon-log-out"></span> Log out
+                </a>
         </div>
-        <div class="items">
-           <span class="tabText"> Item 2</span>
-        </div>
-        <div class="items">
-           <span class="tabText"> Item 3</span>
-        </div>
-    </nav>
     
-    <main class="container">
+        </nav>
+        
+        <nav id="left-bar" class = "slideIn">
+                <div class="items" id = "selected-item"> 
+                        <span class="tabText"> Product 1</span> 
+                    </div>
+                    <div class="items">
+                       <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
+                    </div>
+                    <div class="items">
+                       <span class="tabText"> Category 2</span>
+                    </div>
+                    <div class="items">
+                       <span class="tabText"> Category 3</span>
+                    </div>
+                    <div class="items">
+                            <span class="tabText"> Category 4</span>
+                    </div>
+                    <div class="items">
+                            <span class="tabText"> Category 5</span>
+                    </div>
+                    <div class="items">
+                            <span class="tabText"> Category 6</span>
+                    </div>
+                    <div class="items">
+                            <span class="tabText"> Category 7</span>
+                    </div>
+                    <div class="items">
+                            <span class="tabText"> Category 8</span>
+                    </div>
+            <div id="companyLogo">
+                    <span class="tabText">© ToyR</span>
+            </div>
+        </nav>
 
-      <!-- Left Column / Product Image -->
-      <div class="left-column">
-        <img data-image="black" src="Images/DollHouse.jpeg" alt="">
-        <img data-image="blue" src="Images/ToyCars.jpg" alt="">
-        <img data-image="red" class="active" src="Images/ToyCars.jpg" alt="">
-      </div>
-
-
-      <!-- Right Column -->
-      <div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-          <span>Product Category</span>
-          <h1>Product Name</h1>
-          <p>Generic Description</p>
-        </div>
-
-        <!-- Product Configuration -->
-        <div class="product-configuration">
-
-          <!-- Product Color -->
-          <div class="product-color">
-            <span>Color</span>
-
-            <div class="color-choose">
-              <div>
-                <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-                <label for="red"><span></span></label>
-              </div>
-              <div>
-                <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                <label for="blue"><span></span></label>
-              </div>
-              <div>
-                <input data-image="black" type="radio" id="black" name="color" value="black">
-                <label for="black"><span></span></label>
-              </div>
+            <div id="promptBox">
+                <button class="promptButton" onclick="goCart()">Go to Cart</button>
+                <span class="promptText">What would you like to do next?</span>
+                <button class="promptButton" onclick="goShop()">Continue Shopping</button>
             </div>
 
+        <main class="container" onclick="outsideBarClick()">
+
+                <!-- Left Column / Product Image -->
+                <div class="left-column">
+                  <img data-image="black" src="Images/DollHouse.jpeg" alt="">
+                  <img data-image="blue" src="Images/ToyCars.jpg" alt="">
+                  <img data-image="red" class="active" src="Images/ToyCars.jpg" alt="">
+                </div>
+          
+          
+                <!-- Right Column -->
+                <div class="right-column">
+          
+                  <!-- Product Description -->
+                  <div class="product-description">
+                    <span>Product Category</span>
+                    <h1>Product Name</h1>
+                    <p>Generic Description</p>
+                  </div>
+          
+                  <!-- Product Configuration -->
+                  <div class="product-configuration">
+          
+                    <!-- Product Color -->
+                    <div class="product-color">
+                      <span>Color</span>
+          
+                      <div class="color-choose">
+                        <div>
+                          <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                          <label for="red"><span></span></label>
+                        </div>
+                        <div>
+                          <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                          <label for="blue"><span></span></label>
+                        </div>
+                        <div>
+                          <input data-image="black" type="radio" id="black" name="color" value="black">
+                          <label for="black"><span></span></label>
+                        </div>
+                      </div>
+          
+                    </div>
+          
+                  <!-- Product Pricing -->
+                  <div class="product-price">
+                    <span>value</span>
+                    <a href="#" class="cart-btn" onclick="openPrompt()">Add to cart</a>
+                  </div>
+                </div>
+              </main>
+          
+              <!-- Scripts -->
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+          <script src="script.js" charset="utf-8"></script>
+
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+          <span class="heading">User Rating</span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4.1 average based on 254 reviews.</p>
+          <hr style="border:3px solid #f1f1f1">
+          
+          <div class="row">
+            <div class="side">
+              <div>5 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-5"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>150</div>
+            </div>
+            <div class="side">
+              <div>4 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-4"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>63</div>
+            </div>
+            <div class="side">
+              <div>3 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-3"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>15</div>
+            </div>
+            <div class="side">
+              <div>2 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-2"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>6</div>
+            </div>
+            <div class="side">
+              <div>1 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-1"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>20</div>
+            </div>
           </div>
+          <section>
+            <header class="comment-title">Comments</header>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
+          
+                  <h3>John Smith</h3>
+                  <p>Generic comment</p>
+              </div>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
+          
+                  <h3>John Smith</h3>
+                  <p>Another generic comment</p>
+              </div>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
+                  <h3>John Smith</h3>
+                  <p>One more generic comment</p>
+          
+              </div>
+          </section>
 
-        <!-- Product Pricing -->
-        <div class="product-price">
-          <span>value</span>
-          <a href="#" class="cart-btn">Add to cart</a>
-        </div>
-      </div>
-    </main>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="script.js" charset="utf-8"></script>
-  </body>
+</body>
 </html>
