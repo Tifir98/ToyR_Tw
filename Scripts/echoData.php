@@ -104,4 +104,32 @@ function echoTotalPrice(){
   echo $totalPrice;
 }
 
+function echoOrderInfo(){
+  if(isset($_SESSION['orderId']) && isset($_SESSION['loggedUser']));
+    $res = getOrder($_SESSION['orderId']);
+
+  if($res == "No order to be Tracked")
+    echo "<h4>Your order info: No order to be Tracked";
+  else{
+    $updated_at = $res['placed_at'];
+    $status = $res['status'];
+    $expected_at = $res['expected_at'];
+
+    echo "<h4>Your order info: </h4>
+      <ul class=\"list-group\">
+      <li class=\"list-group-item\">
+                      <span class=\"prefix\">Last update:</span>
+                      <span class=\"label label-success\">$updated_at</span>
+                  </li>
+                  <li class=\"list-group-item\">
+                      <span class=\"prefix\">Order status:</span>
+                      <span class=\"label label-success\">$status</span>
+                  <li class=\"list-group-item\">
+                      <span class=\"prefix\">Estimated arrival:</span>
+                      <span class=\"label label-success\">$expected_at</span>
+
+                  </a></li>
+    </ul>";
+  }
+}
 ?>

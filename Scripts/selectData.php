@@ -179,6 +179,22 @@ function getUserType(){
             return 0;
 }
 
+function getOrder($orderId){
+    $conn = getConnection();
+
+    $loggedUser = $_SESSION['loggedUser'];
+
+    $sql = "SELECT * FROM Track_order WHERE id = $orderId AND user_id = $loggedUser";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $result = $query_result->fetch_assoc();
+
+    if(!empty($result))
+        return $result;
+    else
+        return "No order to be Tracked";
+}
 
 if(isset($_POST['catId'])){
     
@@ -200,5 +216,12 @@ if(isset($_GET['id'])){
         header("Location: ../categories.html");
     elseif(getUserType() == 1)
         header("Location: ../adminPage.html");
+}
+
+if(isset($_GET['orderId']) && isset($_SESSION['loggedUser'])){
+    $_SESSION['orderId'] = $_GET['orderId'];
+    header("Location: ../orderTracker.html");
+} elseif(isset($_GET['orderId']) && !isset($_SESSION['loggedUser'])){
+    echo "No user logged in";
 }
 ?>

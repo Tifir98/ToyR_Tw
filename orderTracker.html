@@ -81,32 +81,16 @@
                 </div>
                 <div class="subtitle">
                         <div class="search-box">
-                                <input class="search-txt" type="text" name="" placeholder="Insert your order id here">
-                                <a class="search-btn" href="#">
-                                        <i class="fas fa-search"></i>
-                                </a>
+                                <form action="Scripts/selectData.php" method = "GET">
+                                        <input class="search-txt" type="text" name="orderId" placeholder="Order Id">
+                                        <a class="search-btn" href="Scripts/selectData.php">
+                                              <button type="submit" name="orderEntered" style="background: none; border: none; color: inherit; cursor:pointer;"> <i class="fas fa-search fa-2x"></i> </button>
+                                        </a>
+                                </form>
                         </div>
                 </div> 
                 <div class="content">
-                        <h4>Your order info:</h4>   
-                        <ul class="list-group">
-                        <li class="list-group-item">
-                                        <span class="prefix">Last update:</span>
-                                        <span class="label label-success">12.15.2013</span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="prefix">Comment:</span>
-                                        <span class="label label-success">customer's comment goes here</span>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <span class="prefix">Order status:</span>
-                                        <span class="label label-success">Pending/Accepted/In transit/Delivered</span>
-                                    <li class="list-group-item">
-                                        <span class="prefix">Estimated arrival:</span>
-                                        <span class="label label-success">Date Time</span>
-
-                                    </a></li>
-                                </ul>
+                        <?php echoOrderInfo() ?>
                 </div>
         </main>
 </body>
