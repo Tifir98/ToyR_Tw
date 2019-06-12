@@ -107,7 +107,7 @@
    <h3 align="center">Users:</h3><br /> 
         <div class="table-responsive">  
         <form action=<?php echo $_SERVER['PHP_SELF'];?> method="POST">
-        <table class="table table-bordered"> 
+        <table class="table table-bordered" border="1"> 
         <tr><th>Insert Sales Name:</th>
             <th><input type="text" name="nameSale"></th></tr>
         <tr>  
