@@ -1,0 +1,10 @@
+#RegisterSection{
+    position: relative;
+    display:flex;
+    flex-direction:column;
+}
+.RegisterPanel{
+    position: relative;
+    top:50%;
+    color:black;
+}

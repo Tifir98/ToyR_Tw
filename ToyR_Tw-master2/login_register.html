@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/command.css">
+    <link rel="stylesheet" href="Styles/login.css">
+    <title>ToyR - Shopping Cart</title>
+    <script src="Scripts/main.js"></script>
+    <script src="Scripts/shopping.js"></script>
+</head>
+<body onload="onLoad()">
+        <div id="bg">
+            <img src="Images/background1.jpg" class="stretch" onclick="outsideBarClick()">
+        </div>
+        <nav id="top-bar">    
+    
+                <div class = "leftTopBar">
+                    <button id="menu-icon" onclick=burgerClick()>
+                       <i class = "fas fa-bars fa-2x"></i>  
+                    </button>
+            
+                    <div class="search-box">
+                            <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                            <a class="search-btn" href="#">
+                                    <i class="fas fa-search"></i>
+                            </a>
+                    </div>
+                </div>
+                    
+                <div id="rightTopBar">
+                        <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+                        <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                </div>
+            
+                </nav>
+        
+                <nav id="left-bar" class = "slideIn">
+                        <div class="items" id = "selected-item"> 
+                                <span class="tabText"> Shopping Cart</span> 
+                            </div>
+                            <div class="items">
+                               <a href="bestSeller.html" style = "color: black;"> <span class="tabText"> Category 1</span> </a>
+                            </div>
+                            <div class="items">
+                               <span class="tabText"> Category 2</span>
+                            </div>
+                            <div class="items">
+                               <span class="tabText"> Category 3</span>
+                            </div>
+                            <div class="items">
+                                    <span class="tabText"> Category 4</span>
+                            </div>
+                            <div class="items">
+                                    <span class="tabText"> Category 5</span>
+                            </div>
+                            <div class="items">
+                                    <span class="tabText"> Category 6</span>
+                            </div>
+                            <div class="items">
+                                    <span class="tabText"> Category 7</span>
+                            </div>
+                            <div class="items">
+                                    <span class="tabText"> Category 8</span>
+                            </div>
+                    <div id="companyLogo">
+                            <span class="tabText">© ToyR</span>
+                    </div>
+                </nav>
+                <section id="RegisterSection" onclick="outsideBarClick()">
+                    <div class="title">Register:</div>
+                    <div class="RegisterPanel">
+                    <div class="name-box">Autentification data <br/>
+                        <input class="name-txt" type="text" name="" placeholder="Insert your Id!">
+                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
+                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
+                        <input class="name-txt" type="text" name="" placeholder="Insert your Email!">
+                    </div>
+                    <div class="name-box">Personal data <br/>
+                        <input class="name-txt" type="text" name="" placeholder="Insert your Name">
+                        <input class="name-txt" type="text" name="" placeholder="Insert your NickName">
+                        <input class="name-txt" type="text" name="" placeholder="Insert your Full Addres">
+                    </div>
+                    <div>
+                        <form>Select your our gender: <br/>
+                            <input type="radio" name="sex" value="male">Male<br/>
+                            <input type="radio" name="sex" value="female">Female<br/>
+                        </form>
+                    </div>
+                    <div class="placeOrder">
+                            <button class="orderButton" onclick="registerClient()"> Submit</button>
+                    </div>
+                </div> 
+            </section>
+    </body>
+</html>
