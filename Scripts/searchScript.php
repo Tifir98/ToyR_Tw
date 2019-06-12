@@ -19,18 +19,22 @@ if($_GET['searchText'] != NULL){
     $salesSearch->nume=$_GET['searchText'];
     $PSResult=$produsSearch->SearchProduct();
     $SSResult=$salesSearch->SearchSales();
+    $count=0;
         foreach($PSResult as $row){
             $id = $row['id'];
             $url = $row['url'];
             $price = $row['pret'];
             $name = $row['nume'];
-            echo '<div class="panelList"><div class="productPanel" data-name ='. $id.' onclick = "getProductId(this)">'. $name.'</div></div>';
+            echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
+            $count=$count+1;
         }
         foreach($SSResult as $row){
             $id = $row['id'];
             $name = $row['nume'];
             echo '<div class="panelList"><div class="productPanel" data-name ='.$id.' onclick = "getProductId(this)">'. $name.'</div></div>';
+            $count=$count+1;
             }
         }
+
     }
 ?>

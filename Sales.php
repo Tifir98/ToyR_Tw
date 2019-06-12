@@ -32,7 +32,7 @@ class Sales{
         return false;
     }
     public function SearchSales(){
-        $query='SELECT DISTINCT id,nume FROM ' . $this->table . ' WHERE nume=:nume';
+        $query='SELECT DISTINCT id,nume FROM ' . $this->table . ' WHERE lower(nume)=lower(:nume)';
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':nume',$this->nume);
         $stmt->execute();

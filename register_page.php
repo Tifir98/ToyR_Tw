@@ -19,6 +19,7 @@ if($result == True)
 {
     header("Location: index.html");
 }
-
+else{
 header("Location: login_register.html");
+}
 ?>

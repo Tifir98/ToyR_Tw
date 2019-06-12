@@ -59,7 +59,7 @@
     public function RemoveProduct(){
       $query='DELETE FROM ' . $this->table . ' WHERE  id=:id';
       $stmt = $this->conn->prepare($query);
-      $stmt-> bindParam(':id', $this->id);
+      $stmt-> bindParam(':id', $this->idProdus);
       if($stmt->execute()) {
         return true;
       }   
@@ -67,7 +67,7 @@
       return false;
     }
     public function SearchProduct(){
-      $query ='SELECT DISTINCT id,nume,url,pret FROM ' . $this->table . ' WHERE nume=:nume';
+      $query ='SELECT DISTINCT id,nume,url,pret FROM ' . $this->table . ' WHERE lower(nume)=lower(:nume)';
       $stmt= $this->conn->prepare($query);
       $stmt->bindParam(':nume',$this->nume);
       $stmt->execute();
