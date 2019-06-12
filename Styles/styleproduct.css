@@ -15,19 +15,20 @@ height: auto;
 width:42vw;
 border-radius: auto;
 /* margin-right: 300px; */
-margin-top: 5vw;
+margin-top: 10px;
 position: relative;
+left: -20%;
 }
 
 .right-column {
-width: 35%;
+width: 100%;
 margin-top: 60px;
 }
 
 
 /* Left Column */
 .left-column img {
-width: 100%;
+width: 120%;
 position: absolute;
 left: 0;
 /* right: 300px; */
@@ -57,7 +58,7 @@ text-decoration: none;
 }
 .product-description h1 {
 font-weight: 300;
-font-size: 52px;
+font-size: 40px;
 color: white;
 letter-spacing: -2px;
 }
