@@ -18,11 +18,12 @@ while($row = $result->fetch(PDO::FETCH_ASSOC)) {
 $idRow=$idResult->fetch(PDO::FETCH_ASSOC);
 extract($idRow);
 if($num == 1 ) {
-    if($type == 'user')
-    header("Location: categories.html?id= ". $id);
+    if($type == 'user'){
+      header("Location: Scripts/selectData.php?id= ". $id);
+    }
     else
     if($type == 'admin')
-    header("Location: adminPage.html");
+    header("Location: Scripts/selectData.php?id= ". $id);
   }
 }
 ?>

@@ -42,8 +42,14 @@
     <title>ToyR - Categories</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
+    <script src="Scripts/selectTabs.js"></script>
 </head>
 <body onload="onLoad()">
+
+        <?php include_once("Scripts/selectData.php"); 
+              include_once("Scripts/echoData.php");
+        ?>
+
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -62,6 +68,10 @@
             </div>
     </form>
     </div>
+
+    <?php if(getUserType() == 1)
+                echo "<div class=\"centerTopBar\"><button><i class=\"fas fa-user-lock\" onclick=\"goToCPanel()\"></i></button></div>";
+    ?>
         
 
     <div id="rightTopBar">
@@ -72,33 +82,13 @@
     </nav>
     
     <nav id="left-bar" class = "slideIn">
-            <div class="items" id = "selected-item"> 
-                    <span class="tabText"> Categories</span> 
-                </div>
-                <div class="items">
-                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 2</span>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 3</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 4</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 5</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 6</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 7</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 8</span>
-                </div>
+    <div class="items" id="select-item" onclick="trackOrder()">
+                                                View Order
+                                              </div>
+    <div class="items" id = "selected-item"> 
+                                <span class="tabText"> Categories</span> 
+                            </div>
+                            <?php echoLeftTab(); ?>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>

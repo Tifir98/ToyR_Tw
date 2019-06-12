@@ -67,3 +67,11 @@ function goHomePage()
 {
     window.location.href = "index.html";
 }
+
+function goToCPanel(){
+    window.location.href = "adminPage.html";
+}
+
+function trackOrder(){
+    window.location.href = "orderTracker.html";
+}

@@ -106,3 +106,6 @@ a{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 4vh;
 }
+.orderButton:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,follow" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="Styles/orderTracker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/promptBox.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="Scripts/main.js"></script>
+    <script src="Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
+    <title>ToyR - Order</title>
+    
+  </head>
+
+  <body onload="onLoad()">
+        <?php include_once('Scripts/echoData.php');?>
+        <?php include_once('echoSales.php');?>
+    <div id="bg" onload="promptOnLoad()">
+        <img src="Images/background1.jpg"class="stretch">
+    </div>
+
+    <div id="bg">
+            <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
+        </div>
+        <nav id="top-bar">    
+        
+        <div class = "leftTopBar">
+            <button id="menu-icon" onclick=burgerClick()>
+               <i class = "fas fa-bars fa-2x"></i>  
+            </button>
+    
+            <div class="search-box">
+                    <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                    <a class="search-btn" href="#">
+                            <i class="fas fa-search"></i>
+                    </a>
+            </div>
+        </div>
+            
+        <div id="rightTopBar">
+                <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+                <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                <i class="fas fa-sign-out-alt fa-3x"></i>
+        </div>
+    
+        </nav>
+        
+        <nav id="left-bar" class = "slideIn">
+                <div class="items" id="select-item" onclick="trackOrder()">
+                                View Order
+                              </div>
+            <div class="items" id = "selected-item"> 
+                    <span class="tabText"> Categories</span> 
+                </div>
+                <?php echoLeftTab(); ?>
+        <div id="companyLogo">
+                <span class="tabText">© ToyR</span>
+        </div>
+    </nav>
+
+        <form class="example" action="action_page.php">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+
+        <main class="container" onclick="outsideBarClick()">
+                <div class="title">
+                        Looking for an order?
+                </div>
+                <div class="subtitle">
+                        <div class="search-box">
+                                <input class="search-txt" type="text" name="" placeholder="Insert your order id here">
+                                <a class="search-btn" href="#">
+                                        <i class="fas fa-search"></i>
+                                </a>
+                        </div>
+                </div> 
+                <div class="content">
+                        <h4>Your order info:</h4>   
+                        <ul class="list-group">
+                        <li class="list-group-item">
+                                        <span class="prefix">Last update:</span>
+                                        <span class="label label-success">12.15.2013</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Comment:</span>
+                                        <span class="label label-success">customer's comment goes here</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Order status:</span>
+                                        <span class="label label-success">Pending/Accepted/In transit/Delivered</span>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Estimated arrival:</span>
+                                        <span class="label label-success">Date Time</span>
+
+                                    </a></li>
+                                </ul>
+                </div>
+        </main>
+</body>
+</html>

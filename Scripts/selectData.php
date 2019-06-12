@@ -115,18 +115,77 @@ function getSales($salesName){
     $conn = getConnection();
 
     $sql = "SELECT id_produs FROM Sales WHERE nume = \"$salesName\"";
+    $query_result = mysqli_query($conn, $sql);
+    $return_data = array();
+    while($row = $query_result->fetch_assoc()){
+        array_push($return_data, array(
+            'id_produs' => $row['id_produs']
+            ));
+        }
+        return $return_data;
+    }
+
+function getCartList($userId){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM Produs p JOIN Cos c ON p.id = c.Id_produs WHERE c.Id_User = \"$userId\"";
 
     $query_result = mysqli_query($conn, $sql);
 
     $return_data = array();
-
     while($row = $query_result->fetch_assoc()){
-    array_push($return_data, array(
-        'id_produs' => $row['id_produs']
+        array_push($return_data, array(
+            'id' => $row['id'],
+            'nume' => $row['Nume'],
+            'url' => $row['Url'],
+            'rating' => $row['Rating'],
+            'pret' => $row['Pret'],
+            'stoc' => $row['Stoc'],
+            'descriptie' => $row['Descriptie'],
+            'seller' => $row['Seller'],
+            'categorie' => $row['Categorie']
         ));
     }
     return $return_data;
 }
+
+function getTotalPrice($userId){
+    $conn = getConnection();
+
+    $totalPrice = 0;
+
+    $sql = "SELECT * FROM Produs p JOIN Cos c ON p.id = c.Id_produs WHERE c.Id_user = \"$userId\"";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    while($row = $query_result->fetch_assoc()){
+        $totalPrice += $row['Pret'];
+    }
+
+    return $totalPrice;
+}
+
+function getUserType(){
+        
+        if(!isset($_SESSION['loggedUser']))
+          return 0;
+    
+        $conn = getConnection();
+
+        $loggedUser = $_SESSION['loggedUser'];
+
+        $sql = "SELECT * FROM User WHERE id = $loggedUser";
+
+        $query_result = mysqli_query($conn, $sql);
+
+        $res = $query_result->fetch_assoc();
+
+        if($res['Type'] == "admin")
+            return 1;
+        else 
+            return 0;
+}
+
 
 if(isset($_POST['catId'])){
     
@@ -135,7 +194,7 @@ if(isset($_POST['catId'])){
     echo 'productList.html';
 }
 
-if(isset($_POST['prodId'])){
+if(isset($_POST['prodId']) && !isset($_POST['price'])){
     
     $_SESSION['prodId'] = $_POST['prodId'];
 
@@ -151,4 +210,11 @@ if(isset($_POST['saleName']))
 
 
 
+if(isset($_GET['id'])){
+    $_SESSION['loggedUser'] = $_GET['id'];
+    if(getUserType() == 0)
+        header("Location: ../categories.html");
+    elseif(getUserType() == 1)
+        header("Location: ../adminPage.html");
+}
 ?>
