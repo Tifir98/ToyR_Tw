@@ -46,6 +46,10 @@ function echoProduct(){
     $category = getCategory($result[0]['categorie']);
     $categoryName = $category[0]['nume'];
 
+    if(isset($_SESSION['loggedUser']))
+      $str = "<a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this); openPrompt()\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>";
+    else     
+      $str = "<a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this);\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>";
 
     echo "<!-- Left Column / Product Image -->
     <div class=\"left-column\">
@@ -68,9 +72,9 @@ function echoProduct(){
 
       <!-- Product Pricing -->
       <div class=\"product-price\">
-        <span>$price</span>
-        <a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this); openPrompt()\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>
-      </div>
+        <span>$price</span>"
+        . $str .
+      "</div>
     </div>";
 }
 
