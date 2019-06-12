@@ -44,6 +44,7 @@
         <div id="rightTopBar">
                 <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
                 <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                <i class="fas fa-sign-out-alt fa-3x"></i>
         </div>
     
         </nav>
@@ -85,5 +86,40 @@
             <input type="text" placeholder="Search.." name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
+
+        <main class="container" onclick="outsideBarClick()">
+                <div class="title">
+                        Looking for an order?
+                </div>
+                <div class="subtitle">
+                        <div class="search-box">
+                                <input class="search-txt" type="text" name="" placeholder="Insert your order id here">
+                                <a class="search-btn" href="#">
+                                        <i class="fas fa-search"></i>
+                                </a>
+                        </div>
+                </div> 
+                <div class="content">
+                        <h4>Your order info:</h4>   
+                        <ul class="list-group">
+                        <li class="list-group-item">
+                                        <span class="prefix">Last update:</span>
+                                        <span class="label label-success">12.15.2013</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Comment:</span>
+                                        <span class="label label-success">customer's comment goes here</span>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Order status:</span>
+                                        <span class="label label-success">Pending/Accepted/In transit/Delivered</span>
+                                    <li class="list-group-item">
+                                        <span class="prefix">Estimated arrival:</span>
+                                        <span class="label label-success">Date Time</span>
+
+                                    </a></li>
+                                </ul>
+                </div>
+        </main>
 </body>
 </html>
