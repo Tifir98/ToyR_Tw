@@ -51,14 +51,14 @@
       <h3 align="center">Raport:</h3><br /><br />  
       <table border="1" cellspacing="0" cellpadding="5">  
            <tr>  
-           <th width="10%">Nume</th>  
-           <th width="20%">Url</th>  
-           <th width="10%">Rating</th>  
-           <th width="10%">Pret</th>  
-           <th width="10%">Stoc</th>  
-           <th width="20%">Descriptie</th>  
-           <th width="10%">Seller</th>  
-           <th width="10%">Categorie</th>    
+           <td width="10%">Nume</td>  
+           <td width="20%">Url</td>  
+           <td width="10%">Rating</td>  
+           <td width="10%">Pret</td>  
+           <td width="10%">Stoc</td>  
+           <td width="20%">Descriptie</td>  
+           <td width="10%">Seller</td>  
+           <td width="10%">Categorie</td>    
            </tr>  
       ';  
       $content .= fetch_data();  
@@ -156,19 +156,19 @@
                     </div>
                 </nav>
                 <br /><br />  
-                <div class="container" style="width:90%;">  
+                <div class="container" style="width:100%;">  
                      <h3 align="center">Raport:</h3><br />  
-                     <div class="table-responsive">  
-                          <table class="table table-bordered" border="1">  
+                     <div class="table-responsive" width="100%">  
+                          <table  border="1">  
                                <tr>  
-                                    <th width="10%">Nume</th>  
-                                    <th width="20%">Url</th>  
-                                    <th width="10%">Rating</th>  
-                                    <th width="10%">Pret</th>  
-                                    <th width="10%">Stoc</th>  
-                                    <th width="20%">Descriptie</th>  
-                                    <th width="10%">Seller</th>  
-                                    <th width="10%">Categorie</th>  
+                                    <td width="10%">Nume</td>  
+                                    <td width="20%">Url</td>  
+                                    <td width="10%">Rating</td>  
+                                    <td width="10%">Pret</td>  
+                                    <td width="10%">Stoc</td>  
+                                    <td width="20%">Descriptie</td>  
+                                    <td width="10%">Seller</td>  
+                                    <td width="10%">Categorie</td>  
                                </tr>  
                           <?php  
                           echo fetch_data();  
