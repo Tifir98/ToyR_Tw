@@ -18,7 +18,7 @@ function echoLeftTab(){
     foreach($result as $row){
         $name = $row['nume'];
         $id = $row['id'];
-        echo "<div class=\"items\"><span class=\"tabText\" data-name = \"$id\" onclick=\"getTabId(this)\">$name </span></div>";
+        echo "<div class=\"items\" data-name = \"$id\" onclick=\"getTabId(this)\"><span class=\"tabText\" >$name </span></div>";
     }
 }
 

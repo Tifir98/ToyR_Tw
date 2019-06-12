@@ -133,3 +133,6 @@
     cursor: pointer;
     size: 5 px;
 }
+.items:hover{
+    cursor: pointer;
+}

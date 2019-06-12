@@ -23,7 +23,7 @@ if($num == 1 ) {
     }
     else
     if($type == 'admin')
-    header("Location: adminPage.html");
+    header("Location: Scripts/selectData.php?id= ". $id);
   }
 }
 ?>

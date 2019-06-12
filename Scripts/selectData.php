@@ -42,8 +42,6 @@ function getCategories(){
 
 }
 
-
-
 function getCategory($catId){
     $conn = getConnection();
 
@@ -160,6 +158,28 @@ function getTotalPrice($userId){
     return $totalPrice;
 }
 
+function getUserType(){
+        
+        if(!isset($_SESSION['loggedUser']))
+          return 0;
+    
+        $conn = getConnection();
+
+        $loggedUser = $_SESSION['loggedUser'];
+
+        $sql = "SELECT * FROM User WHERE id = $loggedUser";
+
+        $query_result = mysqli_query($conn, $sql);
+
+        $res = $query_result->fetch_assoc();
+
+        if($res['Type'] == "admin")
+            return 1;
+        else 
+            return 0;
+}
+
+
 if(isset($_POST['catId'])){
     
     $_SESSION['catId'] = $_POST['catId'];
@@ -176,6 +196,9 @@ if(isset($_POST['prodId']) && !isset($_POST['price'])){
 
 if(isset($_GET['id'])){
     $_SESSION['loggedUser'] = $_GET['id'];
-    header("Location: ../categories.html");
+    if(getUserType() == 0)
+        header("Location: ../categories.html");
+    elseif(getUserType() == 1)
+        header("Location: ../adminPage.html");
 }
 ?>
