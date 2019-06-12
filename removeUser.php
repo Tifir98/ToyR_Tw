@@ -95,7 +95,7 @@
    <div class="container" style="width:100%;">  
    <h3 align="center">Users:</h3><br /> 
         <div class="table-responsive">  
-        <table class="table table-bordered">  
+        <table class="table table-bordered" border="1">  
         <tr>  
              <th width="25%">Email</th>  
              <th width="25%">Nume</th>  
