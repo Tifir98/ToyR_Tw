@@ -57,6 +57,17 @@
     background: url("../Images/toys.jpeg");
     background-size: 100%;
 }
+.panel
+{
+    width : 25%;
+    height: 15vh;
+    position: relative;
+    float: left;
+    margin: 2% 2% 0% 0%;
+    border-radius: 15px;
+    background: url("../Images/toys.jpeg");
+    background-size: 100%;
+}
 .productPanel
 {
     width: 100%;
