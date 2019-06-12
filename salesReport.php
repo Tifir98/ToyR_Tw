@@ -105,7 +105,7 @@
     <link rel="stylesheet" href="Styles/navigation.css">
     <link rel="stylesheet" href="Styles/command.css">
     <link rel="stylesheet" href="Styles/login.css">
-    <title>ToyR - Shopping Cart</title>
+    <title>ToyR - Sales Report</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
     <script src="Scripts/selectTabs.js"></script>
