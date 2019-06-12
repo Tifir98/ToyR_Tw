@@ -178,5 +178,4 @@ if(isset($_GET['id'])){
     $_SESSION['loggedUser'] = $_GET['id'];
     header("Location: ../categories.html");
 }
-
 ?>

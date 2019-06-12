@@ -18,6 +18,11 @@ function addToCart($prodId){
     }
 }
 
+function logout(){
+    unset($_SESSION['loggedUser']);
+    echo "User logged out";
+}
+
 if(isset($_POST['prodId'])){
     if(isset($_SESSION['loggedUser'])){
         addToCart($_POST['prodId']);
@@ -26,5 +31,8 @@ if(isset($_POST['prodId'])){
       echo "Please log in";  
 }
 
+if(isset($_POST['logout'])){
+    logout();
+}
 
 ?>
