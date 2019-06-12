@@ -106,3 +106,9 @@ a{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 4vh;
 }
+table{
+    table-layout: fixed; 
+    width: 100%;
+    left: 10%;
+    word-wrap: break-word;
+}
