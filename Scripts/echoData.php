@@ -132,4 +132,23 @@ function echoOrderInfo(){
     </ul>";
   }
 }
+
+function echoComments(){
+  $comments = getComments($_SESSION['prodId']);
+
+  foreach($comments as $comment){
+
+    $nume = getUserName($comment['id_user']);
+
+    $comentariu = $comment['comment'];
+
+    echo "<div class=\"friend\">
+        <img src=\"https://image.flaticon.com/icons/svg/126/126486.svg\">
+
+        <h3>$nume</h3>
+        <p>$comentariu</p>
+    </div>";
+  }
+
+}
 ?>

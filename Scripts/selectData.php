@@ -196,6 +196,41 @@ function getOrder($orderId){
         return "No order to be Tracked";
 }
 
+function getUserName($userId){
+    $conn = getConnection();
+
+    $sql = "SELECT Nume, Prenume FROM User WHERE id = $userId";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $result = $query_result->fetch_assoc();
+
+    $return_data = $result['Nume'] . ' ' . $result['Prenume'];
+
+    return $return_data;
+}
+
+function getComments($prodId){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM Rating WHERE id_produs = $prodId";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data = array();
+
+    while($row = $query_result->fetch_assoc()){
+        array_push($return_data, array(
+            "id" => $row['id'],
+            "id_user" => $row['id_user'],
+            "comment" => $row['comentariu']
+        ));
+    }
+
+    return $return_data;
+
+}
+
 if(isset($_POST['catId'])){
     
     $_SESSION['catId'] = $_POST['catId'];
