@@ -64,6 +64,36 @@ function postComment(){
 
 }
 
+function postRating(){
+    $conn = getConnection();
+
+    $loggedUser = $_SESSION['loggedUser'];
+    $prodId = $_SESSION['prodId'];
+    $rating = $_POST['rating'];
+
+    $sql = "SELECT * FROM Rating WHERE id_user = $loggedUser AND rating IS NOT NULL";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    if(empty($query_result->fetch_assoc)){
+        $sql = "INSERT INTO Rating(id_produs, id_user, rating) VALUES(\"$prodId\", \"$loggedUser\", \"$rating\")";
+
+        if(mysqli_query($conn, $sql)){
+            header("Location: ../product.html");
+        } else{
+            echo die("Error at rating insertion:" . mysqli_error($conn));
+        }
+    } else{
+        $sql = "UPDATE Rating SET rating = \"$rating\" WHERE id_user = \"$loggedUser\"";
+
+        if(mysqli_query($conn, $sql)){
+            header("Location: ../product.html");
+        } else{
+            echo die("Error at rating updare: " . mysqli_error($conn));
+        }
+    }
+}
+
 if(isset($_POST['prodId'])){
     if(isset($_SESSION['loggedUser'])){
         addToCart($_POST['prodId']);
@@ -89,6 +119,11 @@ if(isset($_POST['commentSubmit']) && isset($_SESSION['loggedUser'])){
     postComment();
 } elseif(isset($_POST['commentSubmit']) && !isset($_SESSION['loggedUser'])){
     echo "Must be logged in to comment";
+}
+
+if(isset($_POST['rating'])){
+    // header("Location: ../product.html");
+    postRating();
 }
 
 ?>
