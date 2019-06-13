@@ -80,9 +80,26 @@
     
     <nav id="left-bar" class = "slideIn">
     <div class="items" id = "selected-item"> 
-                                <span class="tabText"> Categories</span> 
-                            </div>
-                            <?php echoLeftTab(); ?>
+                    <span class="tabText"> Admin Options</span> 
+                </div>
+                <div class="items">
+                        <a href="addProduct.html" style="color: black;"><span class="tabText"> Add Product</span> </a>
+                </div>
+                <div class="items">
+                        <a href="addSales.php" style="color: black;"><span class="tabText"> Add Sales</span>
+                </div>
+                <div class="items">
+                        <a href="salesReport.php" style="color: black;"><span class="tabText"> Sales Report</span>
+                </div>
+                <div class="items">
+                        <a href="removeProduct.php" style="color: black;"><span class="tabText"> Remove Product</span>
+                </div>
+                <div class="items">
+                        <a href="removeSale.php" style="color: black;"><span class="tabText"> Remove Sale</span>
+                </div>
+                <div class="items">
+                        <a href="removeUser.php" style="color: black;"><span class="tabText"> Remove User</span>
+                </div>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>
