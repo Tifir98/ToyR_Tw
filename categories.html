@@ -10,8 +10,12 @@
     <title>ToyR - Categories</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
+    <script src="Scripts/postData.js"></script>
 </head>
 <body onload="onLoad()">
+    <?php include_once('Scripts/echoData.php');?>
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -30,42 +34,26 @@
         </div>
     </div>
         
+    <?php if(getUserType() == 1)
+                echo "<div class=\"centerTopBar\"><button><i class=\"fas fa-user-lock\" onclick=\"goToCPanel()\"></i></button></div>";
+    ?>
 
     <div id="rightTopBar">
             <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
             <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+            <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
     </div>
 
     </nav>
     
     <nav id="left-bar" class = "slideIn">
+                <div class="items" id="select-item">
+                                View Order
+                              </div>
             <div class="items" id = "selected-item"> 
                     <span class="tabText"> Categories</span> 
                 </div>
-                <div class="items">
-                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 2</span>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 3</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 4</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 5</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 6</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 7</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 8</span>
-                </div>
+                <?php echoLeftTab(); ?>
         <div id="companyLogo">
                 <span class="tabText">© ToyR</span>
         </div>
@@ -74,14 +62,8 @@
     <div class = "title"><strong>Anything more specific in mind?</strong></div>
 
     <section id="section1"  onclick="outsideBarClick()">  
-        <div class="panel"> <a href="bestSeller.html"><div class="categoryPanel">Category1</div> </a></div>
-        <div class="panel"><div class="categoryPanel">Category2</div></div>
-        <div class="panel"><div class="categoryPanel">Category3</div></div>
-        <div class="panel"><div class="categoryPanel">Category4</div></div>
-        <div class="panel"><div class="categoryPanel">Category5</div></div>
-        <div class="panel"><div class="categoryPanel">Category6</div></div>
-        <div class="panel"><div class="categoryPanel">Category7</div></div>
-        <div class="panel"><div class="categoryPanel">Category8</div></div>
+       <?php echoCategories()?>
     </section>  
+
 </body>
 </html>

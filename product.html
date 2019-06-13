@@ -13,11 +13,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script src="Scripts/main.js"></script>
     <script src = "Scripts/shopping.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+    <script src="Scripts/selectTabs.js"></script>
+    <script src="Scripts/postData.js"></script>
+    <script src="Scripts/postData.js"></script>
     <title>ToyR - Product</title>
     
   </head>
 
   <body onload="onLoad()">
+
+    <?php include_once('Scripts/echoData.php');?>
+    
     <div id="bg" onload="promptOnLoad()">
         <img src="Images/background1.jpg"class="stretch">
     </div>
@@ -39,45 +46,40 @@
                     </a>
             </div>
         </div>
+
+        <div class="centerTopBar">
+            <button>
+                    <i class="fas fa-user-lock"></i>
+            </button>
+        </div>
             
+         <?php if(getUserType() == 1)
+                echo "<div class=\"centerTopBar\">
+                        <button>
+                                <i class=\"fas fa-user-lock\" onclick=\"goToCPanel()\"></i>
+                        </button>
+                      </div>";
+        ?>
+          
         <div id="rightTopBar">
                 <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
                 <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
         </div>
     
         </nav>
         
         <nav id="left-bar" class = "slideIn">
-                <div class="items" id = "selected-item"> 
-                        <span class="tabText"> Product 1</span> 
-                    </div>
-                    <div class="items">
-                       <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 2</span>
-                    </div>
-                    <div class="items">
-                       <span class="tabText"> Category 3</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 4</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 5</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 6</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 7</span>
-                    </div>
-                    <div class="items">
-                            <span class="tabText"> Category 8</span>
-                    </div>
-            <div id="companyLogo">
-                    <span class="tabText">© ToyR</span>
-            </div>
+          <div class="items" id="select-item">
+            View Order
+          </div>
+          <div class="items" id = "selected-item"> 
+                  <span class="tabText"> Categories</span> 
+              </div>
+              <?php echoLeftTab(); ?>
+          <div id="companyLogo">
+                  <span class="tabText">© ToyR</span>
+          </div>
         </nav>
 
             <div id="promptBox">
@@ -88,59 +90,102 @@
 
         <main class="container" onclick="outsideBarClick()">
 
-                <!-- Left Column / Product Image -->
-                <div class="left-column">
-                  <img data-image="black" src="Images/DollHouse.jpeg" alt="">
-                  <img data-image="blue" src="Images/ToyCars.jpg" alt="">
-                  <img data-image="red" class="active" src="Images/ToyCars.jpg" alt="">
-                </div>
+                <?php echoProduct(); ?>
+        </main>
+        <div style="margin-top: 10%">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+        <script src="script.js" charset="utf-8"></script>
+
+          <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+          <span class="heading">User Rating</span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <p>4.1 average based on 254 reviews.</p>
+          <hr style="border:3px solid #f1f1f1">
           
+          <!-- <div class="row">
+            <div class="side">
+              <div>5 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-5"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>150</div>
+            </div>
+            <div class="side">
+              <div>4 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-4"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>63</div>
+            </div>
+            <div class="side">
+              <div>3 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-3"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>15</div>
+            </div>
+            <div class="side">
+              <div>2 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-2"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>6</div>
+            </div>
+            <div class="side">
+              <div>1 star</div>
+            </div>
+            <div class="middle">
+              <div class="bar-container">
+                <div class="bar-1"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>20</div>
+            </div>
+          </div> -->
+          <section>
+            <header class="comment-title">Comments</header>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
           
-                <!-- Right Column -->
-                <div class="right-column">
+                  <h3>John Smith</h3>
+                  <p>Generic comment</p>
+              </div>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
           
-                  <!-- Product Description -->
-                  <div class="product-description">
-                    <span>Product Category</span>
-                    <h1>Product Name</h1>
-                    <p>Generic Description</p>
-                  </div>
+                  <h3>John Deer</h3>
+                  <p>Another generic comment</p>
+              </div>
+              <div class='friend'>
+                          <img src='https://image.flaticon.com/icons/svg/126/126486.svg'>
+                  <h3>John Lenon</h3>
+                  <p>One more generic comment</p>
           
-                  <!-- Product Configuration -->
-                  <div class="product-configuration">
-          
-                    <!-- Product Color -->
-                    <div class="product-color">
-                      <span>Color</span>
-          
-                      <div class="color-choose">
-                        <div>
-                          <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-                          <label for="red"><span></span></label>
-                        </div>
-                        <div>
-                          <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                          <label for="blue"><span></span></label>
-                        </div>
-                        <div>
-                          <input data-image="black" type="radio" id="black" name="color" value="black">
-                          <label for="black"><span></span></label>
-                        </div>
-                      </div>
-          
-                    </div>
-          
-                  <!-- Product Pricing -->
-                  <div class="product-price">
-                    <span>value</span>
-                    <a href="#" class="cart-btn" onclick="openPrompt()">Add to cart</a>
-                  </div>
-                </div>
-              </main>
-          
-              <!-- Scripts -->
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-          <script src="script.js" charset="utf-8"></script>
+              </div>
+          </section>
+        </div>
 
 </body>
 </html>

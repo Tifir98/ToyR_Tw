@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="Styles/navigation.css">
+    <link rel="stylesheet" href="Styles/command.css">
+    <link rel="stylesheet" href="Styles/login.css">
+    <title>ToyR - Add Product</title>
+    <script src="Scripts/main.js"></script>
+    <script src="Scripts/shopping.js"></script>
+    <script src="Scripts/selectTabs.js"></script>
+</head>
+<body onload="onLoad()">
+        <div id="bg">
+            <img src="Images/background1.jpg" class="stretch" onclick="outsideBarClick()">
+        </div>
+        <nav id="top-bar">    
+    
+                <?php include_once('Scripts/selectData.php'); 
+                      include_once('Scripts/echoData.php');
+                ?>
+
+                <div class = "leftTopBar">
+                    <button id="menu-icon" onclick=burgerClick()>
+                       <i class = "fas fa-bars fa-2x"></i>  
+                    </button>
+            
+                    <div class="search-box">
+                            <input class="search-txt" type="text" name="" placeholder="Search for a toy!">
+                            <a class="search-btn" href="#">
+                                    <i class="fas fa-search"></i>
+                            </a>
+                    </div>
+                </div>
+
+                <?php if(getUserType() == 1)
+                echo "<div class=\"centerTopBar\"><button><i class=\"fas fa-user-lock\" onclick=\"goToCPanel()\"></i></button></div>";
+                ?>
+                    
+                <div id="rightTopBar">
+                        <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+                        <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+                        <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
+                </div>
+            
+                </nav>
+        
+                <nav id="left-bar" class = "slideIn">
+                        <div class="items" id = "selected-item"> 
+                                <span class="tabText"> Categories</span> 
+                            </div>
+                            <?php echoLeftTab(); ?>
+                    <div id="companyLogo">
+                            <span class="tabText">© ToyR</span>
+                    </div>
+                </nav>
+               
+                <section id="RegisterSection" onclick="outsideBarClick()">
+                <form action="addProductPage.php" class="form-container" method="POST">
+                    <div class="title">Add Product</div>
+                    <div class="RegisterPanel">
+                    <div class="name-box">Product Info: <br/>
+                        <input class="name-txt" type="text" name="nume" placeholder="Nume">
+                        <input class="name-txt" type="text" name="url" placeholder="Url">
+                        <input class="name-txt" type="text" name="pret" placeholder="Pret">
+                        <input class="name-txt" type="text" name="stoc" placeholder="Stoc">
+                        <input class="name-txt" type="text" name="descriptie" placeholder="Descriptie">
+                        <input class="name-txt" type="text" name="seller" placeholder="Seller">
+                        <!-- <input class="name-txt" type="text" name="categorie" placeholder="Categorie"> -->
+                        <select  name="categorie">
+                                <option value="Masinute">Masinute</option>
+                                <option value="Plus">Plus</option>
+                                <option value="LEGO">LEGO</option>
+                                <option value="Papusi">Papusi</option>
+                                <option value="Jocuri de Societate">Jocuri de Societate</option>
+                                <option value="Jocuri Video">Jocuri Video</option>
+                                <option value="Muzical">Muzical</option>
+                                <option value="Outdoor">Outdoor</option>
+                         </select>
+                    </div>                  
+                    <div class="Add product">
+                            <button type="submit" class="orderButton"> Submit</button>
+                    </div>
+                </form>
+                </div> 
+            </section>
+    </body>
+</html>

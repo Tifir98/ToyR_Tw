@@ -125,3 +125,14 @@
     align-items: center;
     cursor: pointer;
 }
+.centerTopBar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    cursor: pointer;
+    size: 5 px;
+}
+.items:hover{
+    cursor: pointer;
+}

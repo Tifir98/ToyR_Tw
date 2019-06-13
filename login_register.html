@@ -70,29 +70,37 @@
                             <span class="tabText">© ToyR</span>
                     </div>
                 </nav>
+               
                 <section id="RegisterSection" onclick="outsideBarClick()">
+                  <form action="register_page.php" class="form-container" onsubmit="return Validate()" method="POST" name="vform">
                     <div class="title">Register:</div>
                     <div class="RegisterPanel">
-                    <div class="name-box">Autentification data <br/>
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Id!">
-                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
-                        <input class="name-txt" type="password" name="" placeholder="Insert your Password!">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Email!">
+                    <div class="name-box">Autentification data <br/></div>
+                    <div id="email_div">
+                        <input class="name-txt" type="text" name="email" placeholder="Insert your Email!">
+                        <div id="email_error"></div>
                     </div>
-                    <div class="name-box">Personal data <br/>
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Name">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your NickName">
-                        <input class="name-txt" type="text" name="" placeholder="Insert your Full Addres">
+                    <div id="password_div">
+                        <input class="name-txt" type="password" name="pass" placeholder="Insert your Password!">
+                        <div id="password_error"></div>
                     </div>
-                    <div>
-                        <form>Select your our gender: <br/>
-                            <input type="radio" name="sex" value="male">Male<br/>
-                            <input type="radio" name="sex" value="female">Female<br/>
-                        </form>
+                    <div class="name-box">Personal data <br/></div>
+                    <div id="firstname_div">
+                        <input class="name-txt" type="text" name="fname" placeholder="Insert your Firstname">
+                        <div id="firstname_error"></div>
+                    </div>
+                    <div class="lastname_div">
+                        <input class="name-txt" type="text" name="lname" placeholder="Insert your Lastname">
+                        <div id="lastname_error"></div>
+                    </div>
+                    <div id="address_div">
+                        <input class="name-txt" type="text" name="address" placeholder="Insert your Full Address">
+                        <div id="adress_error"></div>
                     </div>
                     <div class="placeOrder">
-                            <button class="orderButton" onclick="registerClient()"> Submit</button>
+                            <button type="submit" class="orderButton" > Submit</button>
                     </div>
+                </form>
                 </div> 
             </section>
     </body>

@@ -22,6 +22,27 @@ a{
     width: 100%;
     top: 20%;
     font-size: 3vw;
+    color: white;
+}
+.subtitle{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 30%;
+    font-size: 2vw;
+    color: white;
+}
+.content{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 40%;
+    font-size: 1.5vw;
+    color: white;
 }
 
 #section1
@@ -50,6 +71,7 @@ a{
     /* background-size: 200%; */
 }
 
+
 .categoryPanel
 {
     width: 100%;
@@ -69,6 +91,7 @@ a{
 {
     animation: backZoom 1s ease;
     background-size: 150%;
+    cursor: pointer;
 }
 .categoryPanel:hover
 {
