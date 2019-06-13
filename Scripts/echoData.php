@@ -50,6 +50,27 @@ function echoSalesList(){
   }
 }
 
+function echoOrders(){
+  $output='';
+  $result = getOrder();
+  foreach($result as $row){
+    $status= $row['status'];
+    $nume = $row['nume'];
+    $placed_at=$row['placed_at'];
+    $output .= ' <form class="form-container" action="changeStatus.php?&id ='.$row['id'].' method="POST"><tr name="user">       
+    <td>'.$nume.'</td>  
+    <td>'.$status.'</td>  
+    <td>'.$placed_at.'</td>  
+    <td><select  name="categorie">
+                    <option value="pending">pending</option
+                    <option value="accepted">accepted</option>
+                    <option value="inbound">inbound</option>
+                    <option value="delivered">delivered</option>
+        </select><button type="submit">Set</button></td></tr></form>';
+  }
+  echo $output;
+}
+
 function echoProduct(){
 
     $result = getProduct($_SESSION['prodId']);

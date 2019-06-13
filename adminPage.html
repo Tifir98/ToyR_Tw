@@ -12,6 +12,8 @@
     <script src="Scripts/shopping.js"></script>
 </head>
 <body onload="onLoad()">
+        <?php include_once('Scripts/echoData.php');?>
+        <?php include_once('echoSales.php');?>
     <div id="bg">
         <img src="Images/background1.jpg"class="stretch" onclick="outsideBarClick()">
     </div>
@@ -21,14 +23,15 @@
         <button id="menu-icon" onclick=burgerClick()>
            <i class = "fas fa-bars fa-2x"></i>  
         </button>
-<form class="search-box" action="script.php">
-        <div>
-                <input class="search-txt" type="text" name="toySearch" placeholder="Search for a toy!">
-                <a class="search-btn" href="#" type="submit">
-                        <i class="fas fa-search"></i>
-                </a>
-        </div>
-</form>
+
+        <form class="search-box" action="Scripts/searchScript.php" method="POST">
+                <div>
+                        <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
+                        <a class="search-btn" type="submit">
+                                <button type="submit"><i class="fas fa-search" ></i></button>
+                        </a>
+                </div>
+        </form>
     </div>
         
 
@@ -39,41 +42,20 @@
 
     </nav>
     
-    <nav id="left-bar" class = "slideIn">
-                <div class="items" id="select-item" onclick="trackOrder()">
-                                View Order
-                              </div>    
+</nav>
+    
+<nav id="left-bar" class = "slideIn">
+            <div class="items" id="select-item" onclick="trackOrder()">
+                            View Order
+                          </div>
         <div class="items" id = "selected-item"> 
-                    <span class="tabText"> Categories</span> 
-                </div>
-                <div class="items">
-                   <a href="bestSeller.html" style="color: black;"> <span class="tabText"> Category 1</span> </a>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 2</span>
-                </div>
-                <div class="items">
-                   <span class="tabText"> Category 3</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 4</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 5</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 6</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 7</span>
-                </div>
-                <div class="items">
-                        <span class="tabText"> Category 8</span>
-                </div>
-        <div id="companyLogo">
-                <span class="tabText">© ToyR</span>
-        </div>
-    </nav>
+                <span class="tabText"> Categories</span> 
+            </div>
+            <?php echoLeftTab(); ?>
+    <div id="companyLogo">
+            <span class="tabText">© ToyR</span>
+    </div>
+</nav>
 
     <div class = "title"><strong>Control Panel</strong></div>
 
@@ -86,6 +68,7 @@
         <div class="panel "> <a href="removeProduct.php"><div class="categoryPanel">Remove Product</div> </a></div> 
         <div class="panel "> <a href="removeSale.php"><div class="categoryPanel">Remove Sale</div> </a></div> 
         <div class="panel "> <a href="removeUser.php"><div class="categoryPanel">Remove User</div> </a></div>
+        <div class="panel "> <a href="statusChange.html"><div class="categoryPanel">Change Status</div> </a></div>
     </section>  
 </body>
 </html>

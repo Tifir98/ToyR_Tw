@@ -38,6 +38,23 @@ function getCategories(){
     return $return_data;
 
 }
+function getOrder(){
+    $conn = getConnection();
+    $sql = "SELECT t.id as id,u.nume as nume,t.status as status,t.placed_at as placed_at  FROM Track_order t join User u on t.user_id=u.id";
+    $query_result = mysqli_query($conn, $sql);
+
+    $return_data =array();
+    while($row = $query_result->fetch_assoc()){
+        array_push($return_data, array(
+            'id' => $row['id'],
+            'status' => $row['status'],
+            'nume' => $row['nume'],
+            'placed_at' =>$row['placed_at']
+        ));
+    }
+    return $return_data;
+
+}
 
 function getCategory($catId){
     $conn = getConnection();
