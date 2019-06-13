@@ -5,7 +5,7 @@
   $database = new Database();
   $db = $database->connect();
       $output = '';  
-      $sql = 'SELECT p.id,p.nume as nume,rating,pret,stoc,seller, c.nume as categorie From Produs p LEFT JOIN Categorii c ON p.categorie=c.id';
+      $sql = 'SELECT p.id as id,p.nume as nume,rating,pret,stoc,seller, c.nume as categorie From Produs p LEFT JOIN Categorii c ON p.categorie=c.id';
       $stmt =$db->prepare($sql);
       $stmt->execute();
 
@@ -19,8 +19,8 @@
                           <td>'.$stoc.'</td>
                           <td>'.$seller.'</td>
                           <td>'.$categorie.'</td>
-                          <td><button><a href="deleteProduct.php?id='.$id.'"> Delete</button> </td>
-                     </tr>   ';
+                          <td><button style:"background :none ;><a href="deleteProduct.php?idProdus='.$id.'"> Delete</button> </td>
+                     </tr>';
       }
       return $output;  
  }

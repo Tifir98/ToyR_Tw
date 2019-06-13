@@ -28,16 +28,34 @@
  if(isset($_POST['Create_Sale']))
  {
      include_once "Sales.php";
+     include_once "Produs.php";
     $database = new Database();
     $db = $database->connect();
     $sales=$_POST['sale'];
     $saleName=$_POST['nameSale'];
     $saleSaving=$_POST['reducere'];
     $insertSale = new Sales($db);
+    $produs = new Produs($db);
+
     $insertSale->nume=$saleName;
-    $insertSale->reducere=$saleSaving;
-    foreach($sales as   $sale){
-        $insertSale->idProdus=$sale;
+    foreach($sales as $sale){
+        $produs->idProdus=$sale;
+        $rezultat = $produs->GetTheProduct();
+        $row=$rezultat->fetch(PDO::FETCH_ASSOC);
+        $newProdus = new Produs($db);
+        $newProdus->nume=$row['nume'].'('.$saleName.')';
+        $newProdus->url=$row['url'];
+        $newProdus->rating=$row['rating'];
+        $newProdus->pret=$row['pret']-(($row['pret'] * $saleSaving)/100);
+        $newProdus->descriptie=$row['descriptie'];
+        $newProdus->seller=$row['seller'];
+        $newProdus->categorie=$row['categorie'];
+        $newProdus->stoc=$row['stoc'];
+        $newProdus->InsertC();
+        $rezultatNou=$newProdus->GetProductId();
+        $rowNou=$rezultatNou->fetch(PDO::FETCH_ASSOC);
+        $insertSale->idProdus=$rowNou['id'];
+        $insertSale->reducere=$saleSaving;
         $insertSale->Insert();
     }
  }
@@ -113,7 +131,7 @@
             <th><input type="text" name="nameSale"></th></tr>
             <th>Sale Saving :</th>
             <th><select  name="reducere">
-                                <option value="1">+0%</option>
+                                <option value="0">+0%</option>
                                 <option value="5">+5%</option>
                                 <option value="10">+10%</option>
                                 <option value="15">+15%</option>

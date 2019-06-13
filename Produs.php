@@ -26,8 +26,24 @@
       $stmt-> bindParam(':descriptie', $this->descriptie);
       $stmt-> bindParam(':seller', $this->seller);
       $nameOfCategorie=$this->FindIdOfCategorie();
-      //$nameOfCategorie = htmlspecialchars(strip_tags($nameOfCategorie));
       $stmt-> bindParam(':categorie', $nameOfCategorie);
+      $stmt-> bindParam(':stoc', $this->stoc);
+      if($stmt->execute()) {
+        return true;
+      }
+      return false;
+    }
+    public function InsertC() {
+      $query = 'INSERT INTO ' .$this->table . ' SET nume = :nume,url= :url,rating= :rating,pret= :pret,stoc= :stoc,descriptie=:descriptie,seller=:seller,
+      categorie=:categorie';
+      $stmt = $this->conn->prepare($query);
+      $stmt-> bindParam(':nume', $this->nume);
+      $stmt-> bindParam(':url', $this->url);
+      $stmt-> bindParam(':rating', $this->rating);
+      $stmt-> bindParam(':pret', $this->pret);
+      $stmt-> bindParam(':descriptie', $this->descriptie);
+      $stmt-> bindParam(':seller', $this->seller);
+      $stmt-> bindParam(':categorie', $this->categorie);
       $stmt-> bindParam(':stoc', $this->stoc);
       if($stmt->execute()) {
         return true;
@@ -40,9 +56,8 @@
       $stmt->bindParam(':categorie',$this->categorie);
       $stmt->execute();
       $idOfCategorie;
-      while( $row=$stmt->fetch(PDO::FETCH_ASSOC)){
-        extract($row);
-        $idOfCategorie=$id;}
+     $row=$stmt->fetch(PDO::FETCH_ASSOC);
+        $idOfCategorie=$row['id'];
       return $idOfCategorie;
     }
     public function FindNameOfCategorie(){
@@ -75,4 +90,20 @@
 
       return $stmt;   
     }
+    public function GetTheProduct(){
+      $query = 'SELECT nume,url,pret,rating,stoc,descriptie,seller,categorie FROM ' . $this->table . ' WHERE id=:id';
+      $stmt=$this->conn->prepare($query);
+      $stmt->bindParam(':id',$this->idProdus);
+      $stmt->execute();
+
+      return $stmt;
+    }
+    public function GetProductId(){
+      $query = 'SELECT id FROM ' . $this->table . ' WHERE lower(nume) like lower(:nume)';
+      $stmt=$this->conn->prepare($query);
+      $stmt->bindParam(':nume',$this->nume);
+      $stmt->execute();
+
+      return $stmt;
+    } 
   }?>

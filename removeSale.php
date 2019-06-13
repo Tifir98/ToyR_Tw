@@ -5,8 +5,7 @@
   $database = new Database();
   $db = $database->connect();
       $output = '';  
-      $sql = 'SELECT DISTINCT s.nume as nume,p.seller as seller,c.nume as categorie,sum(p.pret) as total From Sales s Join Produs p on s.id_produs=p.id
-      Join Categorii c on p.categorie=c.id Group by nume,seller,categorie,s.id';
+      $sql = 'SELECT DISTINCT s.nume as nume,p.seller as seller,sum(p.pret) as total From Sales s Join Produs p on s.id_produs=p.id Group by nume,seller';
       $stmt =$db->prepare($sql);
       $stmt->execute();
 
@@ -15,8 +14,7 @@
          $output .= ' <tr nume="user">       
                           <td>'.$nume.'</td>  
                           <td>'.$total.'</td> 
-                          <td>'.$seller.'</td> 
-                          <td>'.$categorie.'</td>                        
+                          <td>'.$seller.'</td>                      
                         <td><button><a href="deleteSale.php?nume='.$nume.'">Delete</button></td>
                      </tr> ';
       }
@@ -95,10 +93,9 @@
         <div class="table-responsive">  
         <table class="table table-bordered">  
         <tr>  
-             <th width="25%">Nume</th>  
-             <th width="25%">Total</th>   
-             <th width="25%">Seller</th>  
-             <th width="25%">Categorie</th> 
+             <th width="34%">Nume</th>  
+             <th width="33%">Total</th>   
+             <th width="33%">Seller</th>  
         </tr>  
    <?php  
    echo fetch_data();  
