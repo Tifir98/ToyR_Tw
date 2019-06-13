@@ -213,7 +213,7 @@ function getUserName($userId){
 function getComments($prodId){
     $conn = getConnection();
 
-    $sql = "SELECT * FROM Rating WHERE id_produs = $prodId";
+    $sql = "SELECT * FROM Rating WHERE id_produs = $prodId AND comentariu IS NOT NULL";
 
     $query_result = mysqli_query($conn, $sql);
 
@@ -228,6 +228,22 @@ function getComments($prodId){
     }
 
     return $return_data;
+
+}
+
+function getRating($prodId){
+    $conn = getConnection();
+
+    $sql = "SELECT AVG(rating) AS average, COUNT(*) AS totalNumber FROM Rating WHERE id_produs = \"$prodId\" AND rating IS NOT NULL";
+
+    $query_result = mysqli_query($conn, $sql);
+
+    $result = $query_result->fetch_assoc();
+
+    return array(
+        "average" => $result['average'],
+        "totalNumber" => $result['totalNumber']
+    );
 
 }
 

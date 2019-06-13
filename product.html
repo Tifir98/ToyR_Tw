@@ -100,8 +100,8 @@
             <button type = \"submit\" style = \" background: none; border: none; \" name = \"rating\" value = \"4\"><span class=\"fa fa-star checked\"></span></button>
             <button type = \"submit\" style = \" background: none; border: none; \" name = \"rating\" value = \"5\"><span class=\"fa fa-star \"></span></button>
           </form>";
+          echoRating();
           ?>
-          <p>4.1 average based on 254 reviews.</p>
           <?php 
           if(isset($_SESSION['loggedUser'])) {
             echo "<form action=\"Scripts/postData.php\" method=\"POST\">

@@ -151,4 +151,14 @@ function echoComments(){
   }
 
 }
+
+function echoRating(){
+  $rating = getRating($_SESSION['prodId']);
+
+  $avg = $rating['average'];
+  $total = $rating['totalNumber'];
+
+  echo "<p>$avg average based on $total reviews.</p>";
+   
+}
 ?>

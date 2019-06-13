@@ -71,11 +71,11 @@ function postRating(){
     $prodId = $_SESSION['prodId'];
     $rating = $_POST['rating'];
 
-    $sql = "SELECT * FROM Rating WHERE id_user = $loggedUser AND rating IS NOT NULL";
+    $sql = "SELECT COUNT(*) AS count FROM Rating WHERE id_produs = $prodId AND id_user = $loggedUserAND COMENTARIU IS NULL";
 
     $query_result = mysqli_query($conn, $sql);
 
-    if(empty($query_result->fetch_assoc)){
+    if($query_result->fetch_assoc()['count'] == 0){
         $sql = "INSERT INTO Rating(id_produs, id_user, rating) VALUES(\"$prodId\", \"$loggedUser\", \"$rating\")";
 
         if(mysqli_query($conn, $sql)){
