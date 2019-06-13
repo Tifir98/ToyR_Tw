@@ -57,16 +57,17 @@ function echoOrders(){
     $status= $row['status'];
     $nume = $row['nume'];
     $placed_at=$row['placed_at'];
-    $output .= ' <form class="form-container" action="changeStatus.php?&id ='.$row['id'].' method="POST"><tr name="user">       
+    $output .= '<form action="changeStatus.php" class="form-container" method="POST"><tr name="user">     
     <td>'.$nume.'</td>  
     <td>'.$status.'</td>  
     <td>'.$placed_at.'</td>  
     <td><select  name="categorie">
-                    <option value="pending">pending</option
+                    <option value="pending">pending</option>
                     <option value="accepted">accepted</option>
                     <option value="inbound">inbound</option>
                     <option value="delivered">delivered</option>
-        </select><button type="submit">Set</button></td></tr></form>';
+                    </select>
+       <button type="submit" class="orderButton" name="id" value="'.$row['id'].'">Set</button></td></tr></form>';
   }
   echo $output;
 }
