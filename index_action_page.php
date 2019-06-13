@@ -13,6 +13,9 @@ $post->parola=$_POST['psw'];
 $result = $post->getUser();
 $num = $result->rowCount();
 $idResult = $post->getID();
+if($num == 0){
+  header("Location: index.html");
+}
 while($row = $result->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
 $idRow=$idResult->fetch(PDO::FETCH_ASSOC);
