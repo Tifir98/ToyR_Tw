@@ -30,7 +30,7 @@ function echoProductList(){
         $name = $row['nume'];
         $url = $row['url'];
         $price = $row['pret'];
-        echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
+        echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\">  $name </div></div>";
     }
 }
 
@@ -89,9 +89,9 @@ function echoCartList(){
       $price = $row['pret'];
       $htmlObj = "<div class=\"panel\"><div class=\"categoryPanel\" data-name = \"$id\" onclick = ";
       if(!isset($_SESSION['delete'])){
-        $htmlObj = $htmlObj . "\"getProductId(this)\"> $name </div></div>";
+        $htmlObj = $htmlObj . "\"getProductId(this)\"> $name</div></div>";
       } else {
-        $htmlObj = $htmlObj . "\"removeItem(this)\"> $name </div></div>";
+        $htmlObj = $htmlObj . "\"removeItem(this)\"> $name </p> </div></div>";
       }
       echo $htmlObj;
   }
@@ -172,8 +172,30 @@ function echoSalesList(){
       $name = $rowProduct['nume'];
       $url = $rowProduct['url'];
       $price = $rowProduct['pret'];
-      echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
+      echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\">  $name </div></div>";
     }
   }
+}
+
+function echoOrders(){
+  $output='';
+  $result = getOrder0();
+  foreach($result as $row){
+    $status= $row['status'];
+    $nume = $row['nume'];
+    $placed_at=$row['placed_at'];
+    $output .= '<form action="changeStatus.php" class="form-container" method="POST"><tr name="user">     
+    <td>'.$nume.'</td>  
+    <td>'.$status.'</td>  
+    <td>'.$placed_at.'</td>  
+    <td><select  name="categorie">
+                    <option value="pending">pending</option>
+                    <option value="accepted">accepted</option>
+                    <option value="inbound">inbound</option>
+                    <option value="delivered">delivered</option>
+                    </select>
+       <button type="submit" class="orderButton" name="id" value="'.$row['id'].'">Set</button></td></tr></form>';
+  }
+  echo $output;
 }
 ?>

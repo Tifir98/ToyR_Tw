@@ -96,34 +96,41 @@
     <title>ToyR - Shopping Cart</title>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
+    <script src="Scripts/postData.js"></script>
 </head>
 <body onload="onLoad()">
+        <?php include_once('Scripts/echoData.php'); ?>
         <div id="bg">
             <img src="Images/background1.jpg" class="stretch" onclick="outsideBarClick()">
         </div>
         <nav id="top-bar">    
     
-                <div class = "leftTopBar">
-                    <button id="menu-icon" onclick=burgerClick()>
-                       <i class = "fas fa-bars fa-2x"></i>  
-                    </button>
-            
-                    <form class="search-box" action="Scripts/searchScript.php" method="POST">
-                         <div>
+    <div class = "leftTopBar">
+        <button id="menu-icon" onclick=burgerClick()>
+           <i class = "fas fa-bars fa-2x"></i>  
+        </button>
+
+        <form class="search-box" action="Scripts/searchScript.php" method="POST">
+            <div>
                     <input class="search-txt" type="text" name="searchText" id="searchText" placeholder="Search for a toy!">
                     <a class="search-btn" type="submit">
-                            <button type="submit"><i class="fas fa-search" ></i></button>
+                            <button type="submit" style="background: none; border: none;"><i class="fas fa-search" ></i></button>
                     </a>
-                         </div>
-                </form>
-                </div>
-                    
-                <div id="rightTopBar">
-                        <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
-                        <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
-                </div>
-            
-                </nav>
+            </div>
+</form>
+    </div>
+        
+    <?php if(getUserType() == 1)
+                echo "<div class=\"centerTopBar\"><button><i class=\"fas fa-user-lock\" onclick=\"goToCPanel()\"></i></button></div>";
+    ?>
+
+    <div id="rightTopBar">
+            <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
+            <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
+            <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
+    </div>
+
+    </nav>
         
                 <nav id="left-bar" class = "slideIn">
                         <div class="items" id = "selected-item"> 
