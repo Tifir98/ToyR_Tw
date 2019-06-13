@@ -42,7 +42,7 @@ function logout(){
 
     reqPOST.onreadystatechange = function(){
         if(reqPOST.readyState == 4 && reqPOST.status == 200){
-            alert(reqPOST.responseText);
+            eval(reqPOST.responseText);
         }
     }
 
@@ -72,4 +72,8 @@ function placeOrder(){
     }
 
     reqPOST.send(params);
+}
+
+function forRating(element){
+
 }

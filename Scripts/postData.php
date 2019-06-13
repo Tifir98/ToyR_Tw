@@ -21,7 +21,7 @@ function addToCart($prodId){
 
 function logout(){
     unset($_SESSION['loggedUser']);
-    echo "User logged out";
+    echo "alert(\"User logged out\"); window.location.href = \"index.html\"";
 }
 
 function placeOrder(){

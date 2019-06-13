@@ -234,7 +234,7 @@ function getComments($prodId){
 function getRating($prodId){
     $conn = getConnection();
 
-    $sql = "SELECT AVG(rating) AS average, COUNT(*) AS totalNumber FROM Rating WHERE id_produs = \"$prodId\" AND rating IS NOT NULL";
+    $sql = "SELECT ROUND(AVG(rating), 2) AS average, COUNT(*) AS totalNumber FROM Rating WHERE id_produs = \"$prodId\" AND rating IS NOT NULL";
 
     $query_result = mysqli_query($conn, $sql);
 
