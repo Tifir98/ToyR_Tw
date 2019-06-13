@@ -105,6 +105,23 @@ function echoTotalPrice(){
 }
 
 function echoOrderInfo(){
+  if(!isset($_SESSION['orderId']) || !isset($_SESSION['loggedUser']))
+    echo "<h4>Your order info: </h4>
+      <ul class=\"list-group\">
+      <li class=\"list-group-item\">
+                      <span class=\"prefix\">Last update:</span>
+                      <span class=\"label label-success\">N/A</span>
+                  </li>
+                  <li class=\"list-group-item\">
+                      <span class=\"prefix\">Order status:</span>
+                      <span class=\"label label-success\">N/A</span>
+                  <li class=\"list-group-item\">
+                      <span class=\"prefix\">Estimated arrival:</span>
+                      <span class=\"label label-success\">N/A</span>
+
+                  </a></li>
+      </ul>";
+  else{
   if(isset($_SESSION['orderId']) && isset($_SESSION['loggedUser']));
     $res = getOrder($_SESSION['orderId']);
 
@@ -130,6 +147,7 @@ function echoOrderInfo(){
 
                   </a></li>
     </ul>";
+    }
   }
 }
 
