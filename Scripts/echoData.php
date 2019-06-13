@@ -52,13 +52,13 @@ function echoProduct(){
       $str = "<a href=\"#\" class=\"cart-btn\" onclick=\"addToCart(this);\" data-name = \"$id\" data-value = \" $price\">Add to cart</a>";
 
     echo "<!-- Left Column / Product Image -->
-    <div class=\"left-column\">
+    <div class=\"left-column\" style=\"margin-bottom: 10px;\">
       <img data-image=\"red\" class=\"active\" src=\"$url\">
     </div>
 
 
     <!-- Right Column -->
-    <div class=\"right-column\">
+    <div class=\"right-column\" style=\"margin-bottom: 15%;\">
 
       <!-- Product Description -->
       <div class=\"product-description\">

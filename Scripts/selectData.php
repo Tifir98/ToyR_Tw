@@ -247,6 +247,25 @@ function getRating($prodId){
 
 }
 
+function getSales($salesName){
+    $conn = getConnection();
+    $sql = "SELECT id_produs FROM Sales WHERE nume = \"$salesName\"";
+    $query_result = mysqli_query($conn, $sql);
+    $return_data = array();
+    while($row = $query_result->fetch_assoc()){
+        array_push($return_data, array(
+            'id_produs' => $row['id_produs']
+            ));
+        }
+        return $return_data;
+    }
+
+if(isset($_POST['saleName']))
+{
+    $_SESSION['saleName']=$_POST['saleName'];
+    echo 'productSales.html';
+}
+
 if(isset($_POST['catId'])){
     
     $_SESSION['catId'] = $_POST['catId'];

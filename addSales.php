@@ -1,6 +1,5 @@
 <?php  
   include_once 'Database.php';
-
  function fetch_data()  
  {  
     $database = new Database();
@@ -9,7 +8,6 @@
       $sql = 'SELECT p.id,p.nume as nume,rating,pret,stoc,seller, c.nume as categorie From Produs p LEFT JOIN Categorii c ON p.categorie=c.id';
       $stmt =$db->prepare($sql);
       $stmt->execute();
-
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
   
@@ -28,14 +26,33 @@
  if(isset($_POST['Create_Sale']))
  {
      include_once "Sales.php";
+     include_once "Produs.php";
     $database = new Database();
     $db = $database->connect();
     $sales=$_POST['sale'];
     $saleName=$_POST['nameSale'];
+    $saleSaving=$_POST['reducere'];
     $insertSale = new Sales($db);
+    $produs = new Produs($db);
     $insertSale->nume=$saleName;
-    foreach($sales as   $sale){
-        $insertSale->idProdus=$sale;
+    foreach($sales as $sale){
+        $produs->idProdus=$sale;
+        $rezultat = $produs->GetTheProduct();
+        $row=$rezultat->fetch(PDO::FETCH_ASSOC);
+        $newProdus = new Produs($db);
+        $newProdus->nume=$row['nume'].'('.$saleName.')';
+        $newProdus->url=$row['url'];
+        $newProdus->rating=$row['rating'];
+        $newProdus->pret=$row['pret']-(($row['pret'] * $saleSaving)/100);
+        $newProdus->descriptie=$row['descriptie'];
+        $newProdus->seller=$row['seller'];
+        $newProdus->categorie=$row['categorie'];
+        $newProdus->stoc=$row['stoc'];
+        $newProdus->InsertC();
+        $rezultatNou=$newProdus->GetProductId();
+        $rowNou=$rezultatNou->fetch(PDO::FETCH_ASSOC);
+        $insertSale->idProdus=$rowNou['id'];
+        $insertSale->reducere=$saleSaving;
         $insertSale->Insert();
     }
  }
@@ -55,7 +72,6 @@
     <script src="Scripts/main.js"></script>
     <script src="Scripts/shopping.js"></script>
     <script src="Scripts/selectTabs.js"></script>
-    <script src="Scripts/postData.js"></script>
 </head>
 <body onload="onLoad()">
 
@@ -89,15 +105,11 @@
     <div id="rightTopBar">
             <img src="Images/toyr_logo.png" id="rightLogo" onclick="goHomePage()">
             <i class="fas fa-shopping-cart fa-2x" id="home-icon" onclick="goCart()"></i>
-            <i class="fas fa-sign-out-alt fa-3x" onclick="logout()"></i>
     </div>
 
     </nav>
     
     <nav id="left-bar" class = "slideIn">
-    <div class="items" id="select-item" onclick="trackOrder()">
-    <span class="tabText"> View Order</span>
-                                              </div>
     <div class="items" id = "selected-item"> 
                                 <span class="tabText"> Categories</span> 
                             </div>
@@ -114,6 +126,15 @@
         <table class="table table-bordered"> 
         <tr><th>Insert Sales Name:</th>
             <th><input type="text" name="nameSale"></th></tr>
+            <th>Sale Saving :</th>
+            <th><select  name="reducere">
+                                <option value="0">+0%</option>
+                                <option value="5">+5%</option>
+                                <option value="10">+10%</option>
+                                <option value="15">+15%</option>
+                                <option value="25">+25%</option>
+                                <option value="50">+50%</option>
+                         </select></th>
         <tr>  
              <th width="20%">Nume</th>  
              <th width="16%">Rating</th>  
@@ -131,6 +152,3 @@
 </div></div>  
 </body>
 </html>
-
-
-

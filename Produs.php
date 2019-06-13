@@ -1,26 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@teodragoi
-
-0
-0
-
-    0
-
-Tifir-Marian/ToyR_Tw Private
-Code
-Issues 0
-Pull requests 1
-Projects 0
-Security
-Insights
-ToyR_Tw/Produs.php
-Tifir Completed Sales edf8b5a 6 hours ago
-110 lines (105 sloc) 3.75 KB
 <?php
   class Produs {
     public $conn;
@@ -126,18 +103,3 @@ Tifir Completed Sales edf8b5a 6 hours ago
       return $stmt;
     } 
   }?>
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-

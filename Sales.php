@@ -1,26 +1,3 @@
-
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@teodragoi
-
-0
-0
-
-    0
-
-Tifir-Marian/ToyR_Tw Private
-Code
-Issues 0
-Pull requests 1
-Projects 0
-Security
-Insights
-ToyR_Tw/Sales.php
-Tifir Worked on Sales 1f5b0cc 9 hours ago
-52 lines (49 sloc) 1.5 KB
 <?php
 class Sales{
     public $conn;
@@ -70,18 +47,3 @@ class Sales{
     }
 }
 ?>
-
-    © 2019 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-

@@ -28,13 +28,14 @@ if($_GET['searchText'] != NULL){
             echo "<div class=\"panelList\"><div class=\"productPanel\" data-name = \"$id\" onclick = \"getProductId(this)\"> $name</div></div>";
             $count=$count+1;
         }
-        foreach($SSResult as $row){
-            $id = $row['id'];
-            $name = $row['nume'];
-            echo '<div class="panelList"><div class="productPanel" data-name ='.$id.' onclick = "getProductId(this)">'. $name.'</div></div>';
-            $count=$count+1;
-            }
-        }
+        // foreach($SSResult as $row){
+        //     $id = $row['id'];
+        //     $name = $row['nume'];
+        //     echo '<div class="panelList"><div class="productPanel" data-name ='.$id.' onclick = "getProductId(this)">'. $name.'</div></div>';
+        //     $count=$count+1;
+        //     }
+        // }
 
     }
+}
 ?>
