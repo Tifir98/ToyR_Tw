@@ -47,6 +47,23 @@ function placeOrder(){
     }
 }
 
+function postComment(){
+    $conn = getConnection();
+
+    $loggedUser = $_SESSION['loggedUser'];
+    $prodId = $_SESSION['prodId'];
+    $comment = $_POST['comment'];
+
+    $sql = "INSERT INTO Rating(id_produs, id_user, comentariu) VALUES(\"$prodId\", \"$loggedUser\", \"$comment\")";
+
+    if(mysqli_query($conn, $sql)){
+        header("Loctaion: ../product.html");
+    } else{
+        echo die("Error at insertion comment: " . mysqli_error($conn));
+    }
+
+}
+
 if(isset($_POST['prodId'])){
     if(isset($_SESSION['loggedUser'])){
         addToCart($_POST['prodId']);
@@ -65,6 +82,13 @@ if(isset($_POST['placeOrder'])){
     else{
         placeOrder();
     }
+}
+
+if(isset($_POST['commentSubmit']) && isset($_SESSION['loggedUser'])){
+    header("Location: ../product.html");
+    postComment();
+} elseif(isset($_POST['commentSubmit']) && !isset($_SESSION['loggedUser'])){
+    echo "Must be logged in to comment";
 }
 
 ?>
